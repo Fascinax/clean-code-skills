@@ -180,3 +180,4 @@ User.builder()
 
 When reviewing naming, cite the rule number (e.g., "N1 violation: `d` is not descriptive").
 When renaming, explain the improvement (e.g., "Renamed `proc` to `processTransactions` (N1)").
+When applying Modern Java idioms, infer the Java version from project config first (17+: records/sealed; 21+: pattern matching/virtual threads; default: 17).

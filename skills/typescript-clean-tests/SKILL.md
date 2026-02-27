@@ -248,3 +248,4 @@ describe('UserService', () => {
 
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, explain the coverage (e.g., "Added edge cases for undefined, empty array, and type narrowing (T5)").
+When applying Modern TypeScript test idioms, infer the TS version from project config first (4.5+: inline `import type`; 4.9+: `satisfies`; 5.0+: `const` type params; default: 4.5).

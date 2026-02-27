@@ -127,3 +127,4 @@ These adapt the Java-specific rules (J1-J3) to Python conventions:
 
 When reviewing code, identify violations by rule number (e.g., "G5 violation: duplicated logic").
 When fixing or editing code, report what was fixed (e.g., "Fixed: extracted magic number to `SECONDS_PER_DAY` (G25)").
+Before applying Modern Python idioms, check `pyproject.toml` (`requires-python`), `setup.cfg`, or `.python-version` for the target version. Python 3.8+: walrus `:=`. Python 3.10+: `match/case`. Python 3.12+: `type` aliases. Default to 3.8 if no signal found.

@@ -152,3 +152,4 @@ public SummaryReport generateReport(List<Order> orders) {
 
 When reviewing methods, cite the rule number (e.g., "F3 violation: boolean flag splits behavior").
 When refactoring, explain the improvement (e.g., "Replaced constructor flag with static factory methods `Report.summary()` and `Report.detailed()` (F3)").
+When applying Modern Java idioms, infer the Java version from project config first (17+: records/sealed; 21+: pattern matching/virtual threads; default: 17).

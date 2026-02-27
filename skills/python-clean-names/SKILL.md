@@ -189,3 +189,4 @@ class Color(Enum):
 
 When reviewing naming, cite the rule number (e.g., "N1 violation: `d` is not descriptive").
 When renaming, explain the improvement (e.g., "Renamed `proc` to `process_transactions` (N1)").
+When applying Modern Python idioms, infer the Python version from project config first (3.8+: walrus `:=`; 3.10+: `match/case`; 3.12+: `type` aliases; default: 3.8).

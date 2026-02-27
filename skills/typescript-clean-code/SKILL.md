@@ -181,3 +181,4 @@ function fetchData<TResponse>(url: string): Promise<TResponse> { ... }
 
 When reviewing code, identify violations by rule number (e.g., "G5 violation: duplicated logic").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced `any` with `unknown` (TS1)").
+Before applying Modern TypeScript idioms, check `tsconfig.json` (`target`, `lib`) and the `typescript` version in `package.json`. TS 4.5+: inline `import type`. TS 4.9+: `satisfies`. TS 5.0+: `const` type parameters. Default to TS 4.5 if no signal found.

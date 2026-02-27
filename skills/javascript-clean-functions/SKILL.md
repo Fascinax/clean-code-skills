@@ -164,3 +164,4 @@ const query = new QueryBuilder()
 
 When reviewing functions, cite the rule number (e.g., "F1 violation: 4 positional arguments, use object destructuring").
 When refactoring, explain the improvement (e.g., "Replaced 4 params with options object (F1, JS2)").
+When applying Modern JavaScript idioms, infer the Node/ES version from project config first (ES2020+: `?.`, `??`; ES2022+: class fields `#`, top-level `await`; default: ES2020).

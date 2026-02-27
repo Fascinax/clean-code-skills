@@ -182,3 +182,4 @@ async function processOrder(orderId) {
 
 When reviewing code quality, cite the rule number (e.g., "JS1 violation: `var` used instead of `const`").
 When refactoring, explain the improvement (e.g., "Replaced `var` with `const`, added `Object.freeze` for config (JS1, G25)").
+When applying Modern JavaScript idioms, infer the Node/ES version from project config first (ES2020+: `?.`, `??`; ES2022+: class fields `#`, top-level `await`; default: ES2020).

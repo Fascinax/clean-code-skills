@@ -191,3 +191,4 @@ def area(shape: Shape) -> float:
 
 When reviewing code quality, cite the rule number (e.g., "G25 violation: magic number `86400`").
 When refactoring, explain the improvement (e.g., "Extracted constant `SECONDS_PER_DAY = 86400` (G25)").
+When applying Modern Python idioms, infer the Python version from project config first (3.8+: walrus `:=`; 3.10+: `match/case`; 3.12+: `type` aliases; default: 3.8).

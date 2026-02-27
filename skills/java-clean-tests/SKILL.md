@@ -280,3 +280,4 @@ class UserRepositoryIT {
 
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, explain the coverage (e.g., "Added edge cases for null, empty Optional, and leap year (T5)").
+When applying Modern Java test idioms, infer the Java version from project config first (17+: records/sealed; 21+: pattern matching/virtual threads; default: 17).

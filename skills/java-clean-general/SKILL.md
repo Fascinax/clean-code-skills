@@ -162,3 +162,4 @@ if (user.isEligibleForPurchase()) { ... }
 
 When reviewing code quality, cite the rule number (e.g., "G25 violation: magic number `86400`").
 When refactoring, explain the improvement (e.g., "Replaced POJO with record (J1), extracted constant (G25)").
+When applying Modern Java idioms, infer the Java version from project config first (17+: records/sealed; 21+: pattern matching/virtual threads; default: 17).

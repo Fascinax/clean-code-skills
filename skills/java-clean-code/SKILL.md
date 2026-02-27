@@ -180,3 +180,4 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 
 When reviewing code, identify violations by rule number (e.g., "G5 violation: duplicated logic").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced POJO with record (J1)").
+Before applying Modern Java idioms, check `pom.xml` (`maven.compiler.release`), `build.gradle` (Java toolchain), or `.sdkmanrc` for the target version. Java 17+: records, sealed classes. Java 21+: pattern matching switch, virtual threads. Default to Java 17 if no signal found.

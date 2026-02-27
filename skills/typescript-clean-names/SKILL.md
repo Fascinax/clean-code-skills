@@ -186,3 +186,4 @@ type UserState = {
 
 When reviewing naming, cite the rule number (e.g., "N1 violation: `d` is not descriptive").
 When renaming, explain the improvement (e.g., "Renamed generic `T` to `TResponse` for clarity (TS7, N1)").
+When applying Modern TypeScript idioms, infer the TS version from project config first (4.5+: inline `import type`; 4.9+: `satisfies`; 5.0+: `const` type params; default: 4.5).

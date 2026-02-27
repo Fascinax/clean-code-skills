@@ -263,3 +263,4 @@ def test_apply_discount():
 
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, explain the coverage (e.g., "Added edge case for empty list and None input (T5)").
+When applying Modern Python test idioms, infer the Python version from project config first (3.8+: walrus `:=`; 3.10+: `match/case`; 3.12+: `type` aliases; default: 3.8).

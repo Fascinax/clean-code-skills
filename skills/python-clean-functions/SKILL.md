@@ -134,3 +134,4 @@ active_emails = list(map(lambda u: u.email, filter(lambda u: u.is_active, users)
 
 When reviewing functions, cite the rule number (e.g., "F3 violation: boolean flag splits behavior").
 When refactoring, explain the improvement (e.g., "Split `render(is_test)` into `render_test_page()` and `render_production_page()` (F3)").
+When applying Modern Python idioms, infer the Python version from project config first (3.8+: walrus `:=`; 3.10+: `match/case`; 3.12+: `type` aliases; default: 3.8).

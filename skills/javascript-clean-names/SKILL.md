@@ -171,3 +171,4 @@ async function loadDashboardData() { ... }
 
 When reviewing naming, cite the rule number (e.g., "N1 violation: `d` is not descriptive").
 When renaming, explain the improvement (e.g., "Renamed `proc` to `processTransactions` (N1)").
+When applying Modern JavaScript idioms, infer the Node/ES version from project config first (ES2020+: `?.`, `??`; ES2022+: class fields `#`, top-level `await`; default: ES2020).

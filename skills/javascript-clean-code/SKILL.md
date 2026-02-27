@@ -191,3 +191,4 @@ function createUser(name, role = 'member') { ... }
 
 When reviewing code, identify violations by rule number (e.g., "G5 violation: duplicated logic").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced `var` with `const` (JS1)").
+Before applying Modern JavaScript idioms, check `package.json` (`engines.node`), `.nvmrc`, or `.node-version` for the target version. ES2020/Node 14+: optional chaining `?.`, nullish coalescing `??`. ES2022/Node 16+: class fields `#`, top-level `await`. Default to ES2020 if no signal found.

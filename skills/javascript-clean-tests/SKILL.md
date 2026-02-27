@@ -258,3 +258,4 @@ describe('OrderService', () => {
 
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, explain the coverage (e.g., "Added edge cases for null, undefined, and empty string (T5)").
+When applying Modern JavaScript test idioms, infer the Node/ES version from project config first (ES2020+: `?.`, `??`; ES2022+: class fields `#`, top-level `await`; default: ES2020).

@@ -164,3 +164,4 @@ if (isAdmin(user)) {
 
 When reviewing code quality, cite the rule number (e.g., "TS1 violation: `any` used instead of `unknown`").
 When refactoring, explain the improvement (e.g., "Replaced `any` with `unknown` and added type guard (TS1, G28)").
+When applying Modern TypeScript idioms, infer the TS version from project config first (4.5+: inline `import type`; 4.9+: `satisfies`; 5.0+: `const` type params; default: 4.5).

@@ -176,3 +176,4 @@ async function getUser(id: string): Promise<User> {
 
 When reviewing functions, cite the rule number (e.g., "F1 violation: 5 positional arguments, use object destructuring").
 When refactoring, explain the improvement (e.g., "Replaced 5 params with `CreateUserParams` type (F1)").
+When applying Modern TypeScript idioms, infer the TS version from project config first (4.5+: inline `import type`; 4.9+: `satisfies`; 5.0+: `const` type params; default: 4.5).
