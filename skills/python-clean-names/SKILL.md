@@ -123,6 +123,56 @@ def get_or_create_config():
     return json.loads(config_path.read_text())
 ```
 
+## Modern Python Naming Idioms
+
+```python
+# TypeAlias for complex types (Python 3.10+)
+from typing import TypeAlias
+
+UserScores: TypeAlias = dict[str, list[float]]
+
+# Python 3.12+ type statement
+type Matrix = list[list[float]]
+type Handler[T] = Callable[[T], None]
+
+# NamedTuple: use descriptive class-style names
+from typing import NamedTuple
+
+class Coordinate(NamedTuple):
+    latitude: float
+    longitude: float
+
+# Dataclass naming: class noun, fields descriptive
+@dataclass(frozen=True)
+class UserProfile:
+    display_name: str
+    email_address: str
+    is_verified: bool = False
+
+# __slots__ naming: match attribute names exactly
+class Point:
+    __slots__ = ("x", "y")
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
+
+# Protocol naming: use adjective or capability name
+from typing import Protocol
+
+class Serializable(Protocol):
+    def serialize(self) -> bytes: ...
+
+class Renderable(Protocol):
+    def render(self) -> str: ...
+
+# Enum naming: class singular, members UPPER_SNAKE
+from enum import Enum, auto
+
+class Color(Enum):
+    RED = auto()
+    DARK_BLUE = auto()
+```
+
 ## Quick Reference
 
 | Rule | Principle | Example |

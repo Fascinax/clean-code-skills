@@ -181,6 +181,70 @@ def test_user_can_be_activated():
     assert user.is_active
 ```
 
+### Test Naming Convention
+
+Use `test_<function>_<scenario>_<expected>` for clarity.
+
+```python
+def test_find_by_email_existing_user_returns_user(): ...
+def test_find_by_email_unknown_email_returns_none(): ...
+def test_transfer_insufficient_funds_raises_error(): ...
+def test_paginate_empty_list_returns_empty(): ...
+```
+
+## Modern pytest Idioms
+
+```python
+# @pytest.mark.parametrize for data-driven tests
+@pytest.mark.parametrize("year, month, expected", [
+    (2024, 1, 31),   # January
+    (2024, 2, 29),   # Leap year February
+    (2023, 2, 28),   # Non-leap February
+    (2024, 4, 30),   # 30-day month
+    (2024, 12, 31),  # December
+])
+def test_last_day_of_month(year, month, expected):
+    assert last_day_of_month(year, month) == expected
+
+# monkeypatch fixture for mocking
+def test_get_config_reads_env(monkeypatch):
+    monkeypatch.setenv("APP_DEBUG", "true")
+    config = get_config()
+    assert config.debug is True
+
+# conftest.py fixtures for shared setup
+# conftest.py
+@pytest.fixture
+def sample_user():
+    return User(name="Alice", email="alice@example.com")
+
+@pytest.fixture
+def db_session():
+    session = create_test_session()
+    yield session
+    session.rollback()
+
+# Usage in test files — clean and DRY
+def test_user_is_valid(sample_user):
+    assert sample_user.is_valid()
+
+# pytest.raises context manager with match
+def test_divide_by_zero():
+    with pytest.raises(ZeroDivisionError, match="division by zero"):
+        divide(10, 0)
+
+# AAA pattern (Arrange / Act / Assert)
+def test_apply_discount():
+    # Arrange
+    order = Order(items=[Item(price=100)], coupon="SAVE10")
+
+    # Act
+    discounted = apply_discount(order)
+
+    # Assert
+    assert discounted.total == 90
+```
+
 ## Quick Reference
 
 | Rule | Principle |

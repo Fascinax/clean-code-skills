@@ -410,14 +410,18 @@ PRs welcome! Some ideas:
 - [*Effective Java* (3rd Edition)](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997) by Joshua Bloch
 
 ### Clean Code Repos (sources for language skills)
+- [clean-code-python](https://github.com/zedr/clean-code-python) — Python clean code guide adapted from Robert C. Martin's book (4.8k+ stars)
 - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) — JavaScript clean code guide by Ryan McDermott
 - [clean-code-typescript](https://github.com/labs42io/clean-code-typescript) — TypeScript adaptation by labs42io
 - [TypeScript Style Guide](https://github.com/mkosir/typescript-style-guide) — Modern opinionated TS conventions by Marko Kosir
 - [clean-code-java](https://github.com/leonardolemie/clean-code-java) — Java adaptation by Leonardo Lemie
+- [python-patterns](https://github.com/faif/python-patterns) — A collection of design patterns and idioms in Python (42.8k+ stars)
 
 ### Style Guides & Standards
 - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) — Formatting, naming, Javadoc conventions
 - [Java Clean Code: Modern Practices for 2025](https://atruedev.com/blog/java-clean-code) — Records, sealed classes, virtual threads
+- [The Hitchhiker's Guide to Python — Code Style](https://docs.python-guide.org/writing/style/) — PEP 8, idioms, and conventions
+- [quantifiedcode/python-anti-patterns](https://github.com/quantifiedcode/python-anti-patterns) — Categorized Python anti-patterns book
 
 ### Tools & Platforms
 - [Agent Skills Standard](https://agentskills.io)

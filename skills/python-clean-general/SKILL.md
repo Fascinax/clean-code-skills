@@ -95,6 +95,84 @@ When reviewing AI-generated code, verify:
 - [ ] No Law of Demeter violations (G36)
 - [ ] Boundary conditions handled (G3)
 - [ ] Dead code removed (G9)
+- [ ] No wildcard imports (P1)
+- [ ] Enums instead of magic constants (P2)
+- [ ] Type hints on public interfaces (P3)
+
+## Modern Python Idioms
+
+```python
+# Context managers for resource handling
+from contextlib import contextmanager
+
+@contextmanager
+def managed_connection(url: str):
+    conn = create_connection(url)
+    try:
+        yield conn
+    finally:
+        conn.close()
+
+# Protocol for structural subtyping (Python 3.8+)
+from typing import Protocol
+
+class Repository(Protocol):
+    def find_by_id(self, id: int) -> Model | None: ...
+    def save(self, entity: Model) -> Model: ...
+
+# Any class with these methods satisfies Repository — no inheritance needed
+class InMemoryRepo:
+    def find_by_id(self, id: int) -> Model | None: ...
+    def save(self, entity: Model) -> Model: ...
+
+# Frozen dataclass for immutability
+@dataclass(frozen=True)
+class Money:
+    amount: Decimal
+    currency: str
+
+    def add(self, other: "Money") -> "Money":
+        if self.currency != other.currency:
+            raise ValueError("Currency mismatch")
+        return Money(self.amount + other.amount, self.currency)
+
+# Comprehensions over imperative loops
+# Bad — imperative accumulation
+result = []
+for item in items:
+    if item.is_valid():
+        result.append(item.value)
+
+# Good — declarative intent
+result = [item.value for item in items if item.is_valid()]
+
+# Mutable default argument trap
+# Bad — shared mutable default
+def append_to(element, target=[]):  # noqa: B006
+    target.append(element)
+    return target  # Surprising: target persists across calls!
+
+# Good — use None sentinel
+def append_to(element, target=None):
+    if target is None:
+        target = []
+    target.append(element)
+    return target
+
+# G28: Encapsulate conditionals with @property
+class User:
+    @property
+    def is_eligible_for_discount(self) -> bool:
+        return self.tenure_years >= 2 or self.total_spent > 1000
+
+# G23: match/case for exhaustive pattern matching (Python 3.10+)
+def area(shape: Shape) -> float:
+    match shape:
+        case Circle(radius=r):
+            return math.pi * r ** 2
+        case Rectangle(width=w, height=h):
+            return w * h
+```
 
 ## Quick Reference
 

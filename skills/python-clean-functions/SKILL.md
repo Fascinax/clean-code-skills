@@ -65,6 +65,62 @@ def render_production_page(): ...
 
 If it's not called, delete it. No "just in case" code. Git preserves history.
 
+## Modern Python Function Idioms
+
+```python
+# match/case structural pattern matching (Python 3.10+)
+def calculate_area(shape: Shape) -> float:
+    match shape:
+        case Circle(radius=r):
+            return math.pi * r ** 2
+        case Rectangle(width=w, height=h):
+            return w * h
+        case Triangle(base=b, height=h):
+            return 0.5 * b * h
+        case _:
+            raise ValueError(f"Unknown shape: {shape}")
+
+# Walrus operator := for assignment expressions (Python 3.8+)
+def process_lines(file_path: Path) -> list[str]:
+    results = []
+    with open(file_path) as f:
+        while (line := f.readline().strip()):
+            results.append(line.upper())
+    return results
+
+# functools.singledispatch for type-based dispatch
+from functools import singledispatch
+
+@singledispatch
+def format_value(value) -> str:
+    return str(value)
+
+@format_value.register
+def _(value: float) -> str:
+    return f"{value:.2f}"
+
+@format_value.register
+def _(value: datetime) -> str:
+    return value.isoformat()
+
+# Generator functions for lazy evaluation
+def read_large_file(path: Path) -> Iterator[str]:
+    with open(path) as f:
+        for line in f:
+            yield line.strip()
+
+# *args/**kwargs — use keyword-only args for clarity
+def connect(host: str, port: int, *, timeout: float = 30.0, retries: int = 3):
+    ...
+
+# Prefer comprehensions over map/filter/lambda
+# Good — readable and Pythonic
+active_emails = [u.email for u in users if u.is_active]
+
+# Bad — less readable
+active_emails = list(map(lambda u: u.email, filter(lambda u: u.is_active, users)))
+```
+
 ## Quick Reference
 
 | Rule | Principle | Key Signal |
