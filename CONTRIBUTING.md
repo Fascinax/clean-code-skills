@@ -70,7 +70,7 @@ Before submitting a PR, verify:
 
 ## Style Guide
 
-- Use fenced code blocks with language identifiers (````python`, ````java`, etc.)
+- Use fenced code blocks with language identifiers (` ```python`, ` ```java`, etc.)
 - Mark bad examples with `// Bad` or `# Bad` comments
 - Mark good examples with `// Good` or `# Good` comments
 - Keep SKILL.md files under 300 lines
