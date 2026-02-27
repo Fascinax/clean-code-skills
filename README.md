@@ -2,7 +2,7 @@
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-blue)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Languages](https://img.shields.io/badge/Languages-Python%20%7C%20Java%20%7C%20TypeScript%20%7C%20JavaScript-orange)]()
+[![Languages](https://img.shields.io/badge/Languages-Python%20%7C%20Java%20%7C%20TypeScript%20%7C%20JavaScript-orange)](#whats-included)
 
 **Teach your AI to write code that doesn't suck — in any language.**
 
@@ -49,16 +49,20 @@ Plus the language-agnostic **`boy-scout`** orchestrator that coordinates all ski
 
 Each language extends the universal Clean Code catalog with idiomatic rules:
 
-**Python (P1-P3)**
+#### Python (P1-P3)
+
 - P1: No wildcard imports — P2: Use Enums — P3: Type hints on public interfaces
 
-**Java (J1-J10)**
+#### Java (J1-J10)
+
 - J1: Records for data classes — J2: Sealed classes — J3: Pattern matching in switch — J4: Optional, never null — J5: Text blocks — J6: Virtual threads — J7: Google Java Style — J8: Always `@Override` — J9: Enums not integer constants — J10: Javadoc for public APIs
 
-**TypeScript (TS1-TS8)**
+#### TypeScript (TS1-TS8)
+
 - TS1: `unknown` over `any` — TS2: `type` over `interface` — TS3: Discriminated unions — TS4: `as const satisfies` — TS5: `readonly` for immutability — TS6: `import type` — TS7: Descriptive generics — TS8: `@ts-expect-error` over `@ts-ignore`
 
-**JavaScript (JS1-JS7)**
+#### JavaScript (JS1-JS7)
+
 - JS1: `const` by default, never `var` — JS2: Object destructuring — JS3: async/await — JS4: ES6+ classes — JS5: Functional patterns — JS6: `===` strict equality — JS7: Default parameters
 
 Use the master skill for comprehensive coverage, or individual skills for targeted enforcement.

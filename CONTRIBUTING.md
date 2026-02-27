@@ -35,7 +35,7 @@ Thanks for your interest in contributing! This project teaches AI agents to writ
 
 Every category skill should follow this structure:
 
-```
+```markdown
 ---
 name: {lang}-clean-{category}
 description: Use when... (trigger conditions for the AI)
