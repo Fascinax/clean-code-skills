@@ -1,0 +1,109 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-markdown:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: "**/*.md"
+          config: .markdownlint.json
+
+  validate-structure:
+    name: Validate Skill Structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check all SKILL.md files have YAML frontmatter
+        run: |
+          errors=0
+          for file in skills/*/SKILL.md; do
+            if ! head -1 "$file" | grep -q "^---"; then
+              echo "ERROR: $file missing YAML frontmatter"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "$errors file(s) missing frontmatter"
+            exit 1
+          fi
+          echo "All SKILL.md files have valid frontmatter"
+
+      - name: Check all skills have name and description
+        run: |
+          errors=0
+          for file in skills/*/SKILL.md; do
+            # Extract frontmatter (between first and second ---)
+            frontmatter=$(sed -n '/^---$/,/^---$/p' "$file")
+            if ! echo "$frontmatter" | grep -q "^name:"; then
+              echo "ERROR: $file missing 'name' in frontmatter"
+              errors=$((errors + 1))
+            fi
+            if ! echo "$frontmatter" | grep -q "^description:"; then
+              echo "ERROR: $file missing 'description' in frontmatter"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "$errors frontmatter issue(s) found"
+            exit 1
+          fi
+          echo "All SKILL.md files have name and description"
+
+      - name: Check expected skill directories exist
+        run: |
+          expected_dirs=(
+            boy-scout
+            python-clean-code python-clean-names python-clean-functions
+            python-clean-comments python-clean-general python-clean-tests
+            java-clean-code java-clean-names java-clean-functions
+            java-clean-comments java-clean-general java-clean-tests
+            typescript-clean-code typescript-clean-names typescript-clean-functions
+            typescript-clean-comments typescript-clean-general typescript-clean-tests
+            javascript-clean-code javascript-clean-names javascript-clean-functions
+            javascript-clean-comments javascript-clean-general javascript-clean-tests
+          )
+          errors=0
+          for dir in "${expected_dirs[@]}"; do
+            if [ ! -f "skills/$dir/SKILL.md" ]; then
+              echo "ERROR: Missing skills/$dir/SKILL.md"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "$errors missing skill(s)"
+            exit 1
+          fi
+          echo "All 25 expected skills present"
+
+  check-links:
+    name: Check Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for broken relative links
+        run: |
+          errors=0
+          # Check README links to LICENSE and other files
+          for target in LICENSE RESEARCH_SUMMARY.md; do
+            if [ ! -f "$target" ]; then
+              echo "ERROR: Referenced file $target not found"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            exit 1
+          fi
+          echo "All referenced files exist"
