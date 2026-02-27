@@ -1,5 +1,5 @@
 ---
-name: clean-functions
+name: python-clean-functions
 description: Use when writing, fixing, editing, or refactoring Python functions. Enforces Clean Code principles—maximum 3 arguments, single responsibility, no flag parameters.
 ---
 
@@ -64,3 +64,17 @@ def render_production_page(): ...
 ## F4: Delete Dead Functions
 
 If it's not called, delete it. No "just in case" code. Git preserves history.
+
+## Quick Reference
+
+| Rule | Principle | Key Signal |
+|------|-----------|------------|
+| F1 | Max 3 arguments | Use `dataclass` or `dict` for more |
+| F2 | No output arguments | Return values, don't mutate inputs |
+| F3 | No flag arguments | Split into separate functions |
+| F4 | Delete dead functions | If uncalled, remove it |
+
+## AI Behavior
+
+When reviewing functions, cite the rule number (e.g., "F3 violation: boolean flag splits behavior").
+When refactoring, explain the improvement (e.g., "Split `render(is_test)` into `render_test_page()` and `render_production_page()` (F3)").

@@ -1,5 +1,5 @@
 ---
-name: clean-names
+name: python-clean-names
 description: Use when naming, renaming, or fixing names of variables, functions, classes, or modules in Python. Enforces Clean Code principles—descriptive names, appropriate length, no encodings.
 ---
 
@@ -134,3 +134,8 @@ def get_or_create_config():
 | N5 | Length matches scope | Short for loops, long for globals |
 | N6 | No encodings | `users` not `lst_users` |
 | N7 | Describe side effects | `get_or_create_config()` |
+
+## AI Behavior
+
+When reviewing naming, cite the rule number (e.g., "N1 violation: `d` is not descriptive").
+When renaming, explain the improvement (e.g., "Renamed `proc` to `process_transactions` (N1)").

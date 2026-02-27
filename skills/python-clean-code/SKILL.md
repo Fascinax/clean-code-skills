@@ -112,7 +112,7 @@ These adapt the Java-specific rules (J1-J3) to Python conventions:
 
 ## Anti-Patterns (Don't → Do)
 
-| ❌ Don't | ✅ Do |
+| Don't | Do |
 |----------|-------|
 | Comment every line | Delete obvious comments |
 | Helper for one-liner | Inline the code |

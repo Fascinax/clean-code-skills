@@ -1,5 +1,5 @@
 ---
-name: clean-general
+name: python-clean-general
 description: Use when writing, fixing, editing, or reviewing Python code quality. Enforces Clean Code's core principles—DRY, single responsibility, clear intent, no magic numbers, proper abstractions.
 ---
 
@@ -95,3 +95,21 @@ When reviewing AI-generated code, verify:
 - [ ] No Law of Demeter violations (G36)
 - [ ] Boundary conditions handled (G3)
 - [ ] Dead code removed (G9)
+
+## Quick Reference
+
+| Rule | Principle | Key Signal |
+|------|-----------|------------|
+| G3 | Handle boundary conditions | Edge cases, nulls, empty collections |
+| G5 | DRY — no duplication | Single source of truth |
+| G9 | Delete dead code | Unused imports, unreachable branches |
+| G16 | No obscured intent | Extract to well-named function |
+| G23 | Polymorphism over if/else | Growing conditional chains |
+| G25 | Named constants, no magic numbers | `SECONDS_PER_DAY = 86400` |
+| G30 | Functions do one thing | Can you extract another function? |
+| G36 | Law of Demeter | Max one dot per expression |
+
+## AI Behavior
+
+When reviewing code quality, cite the rule number (e.g., "G25 violation: magic number `86400`").
+When refactoring, explain the improvement (e.g., "Extracted constant `SECONDS_PER_DAY = 86400` (G25)").

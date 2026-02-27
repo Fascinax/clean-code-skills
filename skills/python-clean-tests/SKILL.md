@@ -1,5 +1,5 @@
 ---
-name: clean-tests
+name: python-clean-tests
 description: Use when writing, fixing, editing, or refactoring Python tests. Enforces Clean Code principles—fast tests, boundary coverage, one assert per test.
 ---
 
@@ -194,3 +194,8 @@ def test_user_can_be_activated():
 | T7 | Look for patterns in failures |
 | T8 | Check coverage when debugging |
 | T9 | Tests must be fast (<100ms) |
+
+## AI Behavior
+
+When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
+When writing tests, explain the coverage (e.g., "Added edge case for empty list and None input (T5)").

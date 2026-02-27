@@ -1,5 +1,5 @@
 ---
-name: clean-comments
+name: python-clean-comments
 description: Use when writing, fixing, editing, or reviewing Python comments and docstrings. Enforces Clean Code principles—no metadata, no redundancy, no commented-out code.
 ---
 
@@ -50,3 +50,18 @@ Git remembers everything.
 
 The best comment is the code itself. If you need a comment to explain 
 what code does, refactor first, comment last.
+
+## Quick Reference
+
+| Rule | Principle | Key Signal |
+|------|-----------|------------|
+| C1 | No metadata in comments | Author, date, ticket → use Git |
+| C2 | Delete obsolete comments | Stale comment → delete immediately |
+| C3 | No redundant comments | Code says it already → remove comment |
+| C4 | Write comments well | Brief, precise, explains WHY not WHAT |
+| C5 | No commented-out code | Dead code → delete, Git remembers |
+
+## AI Behavior
+
+When reviewing comments, cite the rule number (e.g., "C3 violation: redundant comment restates the code").
+When cleaning comments, explain the action (e.g., "Removed metadata comment, use Git for author tracking (C1)").

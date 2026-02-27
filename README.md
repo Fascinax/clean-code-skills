@@ -2,10 +2,13 @@
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-blue)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Languages](https://img.shields.io/badge/Languages-Python%20%7C%20Java%20%7C%20TypeScript%20%7C%20JavaScript-orange)]()
 
-**Teach your AI to write code that doesn't suck.**
+**Teach your AI to write code that doesn't suck — in any language.**
 
-This repository contains [Agent Skills](https://agentskills.io) that enforce Robert C. Martin's *Clean Code* principles. They work with Google Antigravity, Anthropic's Claude Code, and any agent that supports the Agent Skills standard.
+This repository contains [Agent Skills](https://agentskills.io) that enforce Robert C. Martin's *Clean Code* principles for **Python, Java, TypeScript, and JavaScript**. They work with Google Antigravity, Anthropic's Claude Code, and any agent that supports the Agent Skills standard.
+
+Each language gets its own set of 6 skills (1 master + 5 category skills), all sharing the same universal Clean Code rules (C1-C5, F1-F4, G1-G36, N1-N7, T1-T9) while adding language-specific idioms and modern features.
 
 ## Why?
 
@@ -19,15 +22,44 @@ These skills encode battle-tested solutions to exactly these problems—directly
 
 ## What's Included
 
-| Skill | Description | Rules |
-|-------|-------------|-------|
-| `boy-scout` | **Orchestrator**—always leave code cleaner than you found it | Coordinates all skills |
-| `python-clean-code` | **Master skill** with all 66 rules | C1-C5, E1-E2, F1-F4, G1-G36, N1-N7, P1-P3, T1-T9 |
-| `clean-comments` | Minimal, accurate commenting | C1-C5 |
-| `clean-functions` | Small, focused, obvious functions | F1-F4 |
-| `clean-general` | Core principles (DRY, single responsibility) | G5, G16, G23, G25, G30, G36 |
-| `clean-names` | Descriptive, unambiguous naming | N1-N7 |
-| `clean-tests` | Fast, thorough, boundary-aware tests | T1-T9 |
+### Overview
+
+| Language | Master Skill | Category Skills | Language-Specific Rules |
+|----------|-------------|-----------------|------------------------|
+| **Python** | `python-clean-code` | `python-clean-names`, `python-clean-functions`, `python-clean-comments`, `python-clean-general`, `python-clean-tests` | P1-P3 |
+| **Java** | `java-clean-code` | `java-clean-names`, `java-clean-functions`, `java-clean-comments`, `java-clean-general`, `java-clean-tests` | J1-J10 |
+| **TypeScript** | `typescript-clean-code` | `typescript-clean-names`, `typescript-clean-functions`, `typescript-clean-comments`, `typescript-clean-general`, `typescript-clean-tests` | TS1-TS8 |
+| **JavaScript** | `javascript-clean-code` | `javascript-clean-names`, `javascript-clean-functions`, `javascript-clean-comments`, `javascript-clean-general`, `javascript-clean-tests` | JS1-JS7 |
+
+Plus the language-agnostic **`boy-scout`** orchestrator that coordinates all skills.
+
+### Skills by Category
+
+| Skill Category | Description | Rules |
+|----------------|-------------|-------|
+| `{lang}-clean-code` | **Master skill** with all rules for the language | C1-C5, E1-E2, F1-F4, G1-G36, N1-N7, T1-T9 + language-specific |
+| `{lang}-clean-names` | Descriptive, unambiguous naming | N1-N7 |
+| `{lang}-clean-functions` | Small, focused, obvious functions | F1-F4 |
+| `{lang}-clean-comments` | Minimal, accurate commenting | C1-C5 |
+| `{lang}-clean-general` | Core principles (DRY, single responsibility) | G5, G16, G23, G25, G30, G36 |
+| `{lang}-clean-tests` | Fast, thorough, boundary-aware tests | T1-T9 |
+| `boy-scout` | **Orchestrator** — always leave code cleaner | Coordinates all skills |
+
+### Language-Specific Rules
+
+Each language extends the universal Clean Code catalog with idiomatic rules:
+
+**Python (P1-P3)**
+- P1: No wildcard imports — P2: Use Enums — P3: Type hints on public interfaces
+
+**Java (J1-J10)**
+- J1: Records for data classes — J2: Sealed classes — J3: Pattern matching in switch — J4: Optional, never null — J5: Text blocks — J6: Virtual threads — J7: Google Java Style — J8: Always `@Override` — J9: Enums not integer constants — J10: Javadoc for public APIs
+
+**TypeScript (TS1-TS8)**
+- TS1: `unknown` over `any` — TS2: `type` over `interface` — TS3: Discriminated unions — TS4: `as const satisfies` — TS5: `readonly` for immutability — TS6: `import type` — TS7: Descriptive generics — TS8: `@ts-expect-error` over `@ts-ignore`
+
+**JavaScript (JS1-JS7)**
+- JS1: `const` by default, never `var` — JS2: Object destructuring — JS3: async/await — JS4: ES6+ classes — JS5: Functional patterns — JS6: `===` strict equality — JS7: Default parameters
 
 Use the master skill for comprehensive coverage, or individual skills for targeted enforcement.
 
@@ -208,7 +240,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | G21 | Understand the algorithm |
 | G22 | Make dependencies physical |
 | G23 | Polymorphism over if/else |
-| G24 | Follow conventions (PEP 8) |
+| G24 | Follow conventions (PEP 8 / Google Java Style / ESLint) |
 | G25 | Named constants, not magic numbers |
 | G26 | Be precise |
 | G27 | Structure over convention |
@@ -239,7 +271,42 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | P1 | No wildcard imports |
 | P2 | Use Enums, not magic constants |
 | P3 | Type hints on public interfaces |
+### Java-Specific (J1-J10)
+| Rule | Principle |
+|------|----------|
+| J1 | Use `record` for immutable data classes |
+| J2 | Use sealed classes/interfaces for restricted hierarchies |
+| J3 | Use pattern matching in `switch` |
+| J4 | Use `Optional` return types — never return null |
+| J5 | Use text blocks for multi-line strings |
+| J6 | Use virtual threads for I/O-bound concurrency |
+| J7 | Follow Google Java Style |
+| J8 | Always use `@Override` |
+| J9 | Use enums, not integer constants |
+| J10 | Javadoc for all public APIs |
 
+### TypeScript-Specific (TS1-TS8)
+| Rule | Principle |
+|------|----------|
+| TS1 | Use `unknown` over `any` — always narrow types |
+| TS2 | Prefer `type` over `interface` |
+| TS3 | Use discriminated unions for exhaustive pattern matching |
+| TS4 | Prefer `as const satisfies` for const assertions |
+| TS5 | Use `readonly` and `ReadonlyArray` for immutability |
+| TS6 | Use `import type` for type-only imports |
+| TS7 | Name generics descriptively (`TRequest`, not `T`) |
+| TS8 | Use `@ts-expect-error` over `@ts-ignore` |
+
+### JavaScript-Specific (JS1-JS7)
+| Rule | Principle |
+|------|----------|
+| JS1 | Use `const` by default, `let` when needed — never `var` |
+| JS2 | Use object destructuring for function arguments |
+| JS3 | Prefer async/await over Promises over callbacks |
+| JS4 | Use ES6+ class syntax over prototype manipulation |
+| JS5 | Favor functional patterns (map/filter/reduce) |
+| JS6 | Use `===` strict equality — never `==` |
+| JS7 | Use default parameters instead of short-circuiting |
 ### Tests (T1-T9)
 | Rule | Principle |
 |------|-----------|
@@ -262,11 +329,14 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 Don't need all 66 rules? Copy only the skills you want:
 
 ```bash
-# Just function rules
-cp -r skills/clean-functions ~/.gemini/antigravity/skills/
+# Just Java skills
+cp -r skills/java-clean-* ~/.gemini/antigravity/skills/
 
-# Just comment rules  
-cp -r skills/clean-comments ~/.claude/skills/
+# Just TypeScript function rules
+cp -r skills/typescript-clean-functions ~/.claude/skills/
+
+# Just the orchestrator + one language
+cp -r skills/boy-scout skills/python-clean-* ~/.claude/skills/
 ```
 
 ### Extending Skills
@@ -275,11 +345,22 @@ Add your own rules by editing the `SKILL.md` files or creating new skill folders
 
 ```
 skills/
-├── python-clean-code/
+├── boy-scout/                      # Orchestrator (all languages)
 │   └── SKILL.md
-├── clean-comments/
+├── python-clean-code/              # Python master
 │   └── SKILL.md
-└── my-team-standards/      # Your custom skill
+├── python-clean-names/
+│   └── SKILL.md
+├── java-clean-code/                # Java master
+│   └── SKILL.md
+├── java-clean-names/
+│   └── SKILL.md
+├── typescript-clean-code/          # TypeScript master
+│   └── SKILL.md
+├── javascript-clean-code/          # JavaScript master
+│   └── SKILL.md
+│   ... (5 category skills per language)
+└── my-team-standards/              # Your custom skill
     └── SKILL.md
 ```
 
@@ -312,7 +393,10 @@ This keeps the agent fast—it's not thinking about database migrations when you
 
 PRs welcome! Some ideas:
 
-- [ ] Additional language support (TypeScript, Go, Rust)
+- [x] ~~Additional language support~~ — Java, TypeScript, JavaScript added!
+- [ ] Additional language support (Go, Rust, C#)
+- [ ] SOLID principles as dedicated skills
+- [ ] Framework-specific skills (React, Angular, Spring Boot)
 - [ ] Integration tests
 - [ ] Pre-commit hooks
 - [ ] IDE extensions
@@ -321,7 +405,21 @@ PRs welcome! Some ideas:
 
 ## Resources
 
+### Books
 - [*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) by Robert C. Martin
+- [*Effective Java* (3rd Edition)](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997) by Joshua Bloch
+
+### Clean Code Repos (sources for language skills)
+- [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) — JavaScript clean code guide by Ryan McDermott
+- [clean-code-typescript](https://github.com/labs42io/clean-code-typescript) — TypeScript adaptation by labs42io
+- [TypeScript Style Guide](https://github.com/mkosir/typescript-style-guide) — Modern opinionated TS conventions by Marko Kosir
+- [clean-code-java](https://github.com/leonardolemie/clean-code-java) — Java adaptation by Leonardo Lemie
+
+### Style Guides & Standards
+- [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) — Formatting, naming, Javadoc conventions
+- [Java Clean Code: Modern Practices for 2025](https://atruedev.com/blog/java-clean-code) — Records, sealed classes, virtual threads
+
+### Tools & Platforms
 - [Agent Skills Standard](https://agentskills.io)
 - [Antigravity Documentation](https://developers.google.com/antigravity)
 - [Claude Code Documentation](https://docs.anthropic.com/claude-code)
