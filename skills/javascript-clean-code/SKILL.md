@@ -1,4 +1,4 @@
-﻿---
+---
 name: javascript-clean-code
 description: Use when writing, fixing, editing, reviewing, or refactoring any JavaScript code. Enforces Robert Martin's complete Clean Code catalog—naming, functions, comments, DRY, and boundary conditions—adapted for JavaScript.
 ---
@@ -67,6 +67,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - G36: Law of Demeter (no train wrecks)
 
 ## JavaScript-Specific (JS1-JS7)
+
 - JS1: Use `const` by default, `let` when needed — never `var`
 - JS2: Use object destructuring for function arguments (F1 equivalent)
 - JS3: Prefer async/await over Promises over callbacks

@@ -1,4 +1,4 @@
-﻿---
+---
 name: java-clean-code
 description: Use when writing, fixing, editing, reviewing, or refactoring any Java code. Enforces Robert Martin's complete Clean Code catalog—naming, functions, comments, DRY, and boundary conditions—adapted for Java.
 ---
