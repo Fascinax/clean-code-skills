@@ -202,6 +202,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 ## Rule Reference
 
 ### Comments (C1-C5)
+
 | Rule | Principle |
 |------|-----------|
 | C1 | No metadata in comments (use Git) |
@@ -211,6 +212,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | C5 | Never commit commented-out code |
 
 ### Functions (F1-F4)
+
 | Rule | Principle |
 |------|-----------|
 | F1 | Maximum 3 arguments |
@@ -219,6 +221,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | F4 | Delete dead functions |
 
 ### General (G1-G36)
+
 | Rule | Principle |
 |------|-----------|
 | G1 | One language per file |
@@ -259,6 +262,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | G36 | Law of Demeter (one dot) |
 
 ### Names (N1-N7)
+
 | Rule | Principle |
 |------|-----------|
 | N1 | Choose descriptive names |
@@ -270,12 +274,15 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | N7 | Names describe side effects |
 
 ### Python-Specific (P1-P3)
+
 | Rule | Principle |
 |------|-----------|
 | P1 | No wildcard imports |
 | P2 | Use Enums, not magic constants |
 | P3 | Type hints on public interfaces |
+
 ### Java-Specific (J1-J10)
+
 | Rule | Principle |
 |------|----------|
 | J1 | Use `record` for immutable data classes |
@@ -290,6 +297,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | J10 | Javadoc for all public APIs |
 
 ### TypeScript-Specific (TS1-TS8)
+
 | Rule | Principle |
 |------|----------|
 | TS1 | Use `unknown` over `any` — always narrow types |
@@ -302,6 +310,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | TS8 | Use `@ts-expect-error` over `@ts-ignore` |
 
 ### JavaScript-Specific (JS1-JS7)
+
 | Rule | Principle |
 |------|----------|
 | JS1 | Use `const` by default, `let` when needed — never `var` |
@@ -311,7 +320,9 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | JS5 | Favor functional patterns (map/filter/reduce) |
 | JS6 | Use `===` strict equality — never `==` |
 | JS7 | Use default parameters instead of short-circuiting |
+
 ### Tests (T1-T9)
+
 | Rule | Principle |
 |------|-----------|
 | T1 | Test everything that could break |
@@ -347,7 +358,7 @@ cp -r skills/boy-scout skills/python-clean-* ~/.claude/skills/
 
 Add your own rules by editing the `SKILL.md` files or creating new skill folders:
 
-```
+```text
 skills/
 ├── boy-scout/                      # Orchestrator (all languages)
 │   └── SKILL.md
@@ -372,7 +383,7 @@ skills/
 
 For stricter enforcement, add a `scripts/` folder with linters the agent can run:
 
-```
+```text
 skills/python-clean-code/
 ├── SKILL.md
 └── scripts/
@@ -410,10 +421,12 @@ PRs welcome! Some ideas:
 ## Resources
 
 ### Books
+
 - [*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) by Robert C. Martin
 - [*Effective Java* (3rd Edition)](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997) by Joshua Bloch
 
 ### Clean Code Repos (sources for language skills)
+
 - [clean-code-python](https://github.com/zedr/clean-code-python) — Python clean code guide adapted from Robert C. Martin's book (4.8k+ stars)
 - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) — JavaScript clean code guide by Ryan McDermott
 - [clean-code-typescript](https://github.com/labs42io/clean-code-typescript) — TypeScript adaptation by labs42io
@@ -422,12 +435,14 @@ PRs welcome! Some ideas:
 - [python-patterns](https://github.com/faif/python-patterns) — A collection of design patterns and idioms in Python (42.8k+ stars)
 
 ### Style Guides & Standards
+
 - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) — Formatting, naming, Javadoc conventions
 - [Java Clean Code: Modern Practices for 2025](https://atruedev.com/blog/java-clean-code) — Records, sealed classes, virtual threads
 - [The Hitchhiker's Guide to Python — Code Style](https://docs.python-guide.org/writing/style/) — PEP 8, idioms, and conventions
 - [quantifiedcode/python-anti-patterns](https://github.com/quantifiedcode/python-anti-patterns) — Categorized Python anti-patterns book
 
 ### Tools & Platforms
+
 - [Agent Skills Standard](https://agentskills.io)
 - [Antigravity Documentation](https://developers.google.com/antigravity)
 - [Claude Code Documentation](https://docs.anthropic.com/claude-code)

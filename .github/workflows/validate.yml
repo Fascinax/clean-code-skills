@@ -97,7 +97,7 @@ jobs:
         run: |
           errors=0
           # Check README links to LICENSE and other files
-          for target in LICENSE RESEARCH_SUMMARY.md; do
+          for target in LICENSE; do
             if [ ! -f "$target" ]; then
               echo "ERROR: Referenced file $target not found"
               errors=$((errors + 1))

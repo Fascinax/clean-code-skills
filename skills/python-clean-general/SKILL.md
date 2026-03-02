@@ -7,7 +7,7 @@ description: Use when writing, fixing, editing, or reviewing Python code quality
 
 ## Critical Rules
 
-**G5: DRY (Don't Repeat Yourself)**
+### G5: DRY (Don't Repeat Yourself)
 
 Every piece of knowledge has one authoritative representation.
 
@@ -23,7 +23,7 @@ def calculate_total(subtotal: float, state: str) -> float:
     return subtotal * (1 + TAX_RATES[state])
 ```
 
-**G16: No Obscured Intent**
+### G16: No Obscured Intent
 
 Don't be clever. Be clear.
 
@@ -35,7 +35,7 @@ return (x & 0x0F) << 4 | (y & 0x0F)
 return pack_coordinates(x, y)
 ```
 
-**G23: Prefer Polymorphism to If/Else**
+### G23: Prefer Polymorphism to If/Else
 
 ```python
 # Bad - will grow forever
@@ -58,7 +58,7 @@ class CommissionedEmployee:
     def calculate_pay(self): return self.base + self.commission
 ```
 
-**G25: Replace Magic Numbers with Named Constants**
+### G25: Replace Magic Numbers with Named Constants
 
 ```python
 # Bad
@@ -71,11 +71,11 @@ if elapsed_time > SECONDS_PER_DAY:
     ...
 ```
 
-**G30: Functions Should Do One Thing**
+### G30: Functions Should Do One Thing
 
 If you can extract another function, your function does more than one thing.
 
-**G36: Law of Demeter (Avoid Train Wrecks)**
+### G36: Law of Demeter (Avoid Train Wrecks)
 
 ```python
 # Bad - reaching through multiple objects
@@ -88,6 +88,7 @@ output_dir = context.get_scratch_dir()
 ## Enforcement Checklist
 
 When reviewing AI-generated code, verify:
+
 - [ ] No duplication (G5)
 - [ ] Clear intent, no magic numbers (G16, G25)
 - [ ] Polymorphism over conditionals (G23)

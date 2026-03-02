@@ -1,4 +1,4 @@
----
+﻿---
 name: python-clean-code
 description: Use when writing, fixing, editing, reviewing, or refactoring any Python code. Enforces Robert Martin's complete Clean Code catalog—naming, functions, comments, DRY, and boundary conditions.
 ---
@@ -8,6 +8,7 @@ description: Use when writing, fixing, editing, reviewing, or refactoring any Py
 Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted for Python.
 
 ## Comments (C1-C5)
+
 - C1: No metadata in comments (use Git)
 - C2: Delete obsolete comments immediately
 - C3: No redundant comments
@@ -15,16 +16,19 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - C5: Never commit commented-out code
 
 ## Environment (E1-E2)
+
 - E1: One command to build (`pip install -e ".[dev]"`)
 - E2: One command to test (`pytest`)
 
 ## Functions (F1-F4)
+
 - F1: Maximum 3 arguments (use dataclasses for more)
 - F2: No output arguments (return values)
 - F3: No flag arguments (split functions)
 - F4: Delete dead functions
 
 ## General (G1-G36)
+
 - G1: One language per file
 - G2: Implement expected behavior
 - G3: Handle boundary conditions
@@ -63,12 +67,15 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - G36: Law of Demeter (no train wrecks)
 
 ## Python-Specific (P1-P3)
+
 These adapt the Java-specific rules (J1-J3) to Python conventions:
+
 - P1: No wildcard imports (`from x import *`) — opposite of Java, per PEP 8
 - P2: Use Enums, not magic constants — same principle as J3
 - P3: Type hints on public interfaces — Python's equivalent of Java's static typing
 
 ## Names (N1-N7)
+
 - N1: Choose descriptive names
 - N2: Right abstraction level
 - N3: Use standard nomenclature
@@ -78,6 +85,7 @@ These adapt the Java-specific rules (J1-J3) to Python conventions:
 - N7: Names describe side effects
 
 ## Tests (T1-T9)
+
 - T1: Test everything that could break
 - T2: Use coverage tools
 - T3: Don't skip trivial tests

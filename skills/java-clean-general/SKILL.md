@@ -7,7 +7,7 @@ description: Use when writing, fixing, editing, or reviewing Java code quality. 
 
 ## Critical Rules
 
-**G5: DRY (Don't Repeat Yourself)**
+### G5: DRY (Don't Repeat Yourself)
 
 Every piece of knowledge has one authoritative representation.
 
@@ -30,7 +30,7 @@ public enum State {
 }
 ```
 
-**G16: No Obscured Intent**
+### G16: No Obscured Intent
 
 Don't be clever. Be clear.
 
@@ -42,7 +42,7 @@ return (x & 0x0F) << 4 | (y & 0x0F);
 return packCoordinates(x, y);
 ```
 
-**G23: Prefer Polymorphism to If/Else**
+### G23: Prefer Polymorphism to If/Else
 
 ```java
 // Bad - will grow forever
@@ -73,7 +73,7 @@ public record Commissioned(BigDecimal base, BigDecimal commission) implements Em
 }
 ```
 
-**G25: Replace Magic Numbers with Named Constants**
+### G25: Replace Magic Numbers with Named Constants
 
 ```java
 // Bad
@@ -87,11 +87,11 @@ if (elapsedTime > SECONDS_PER_DAY) { ... }
 if (elapsed.compareTo(Duration.ofDays(1)) > 0) { ... }
 ```
 
-**G30: Functions Should Do One Thing**
+### G30: Functions Should Do One Thing
 
 If you can extract another method, your method does more than one thing.
 
-**G36: Law of Demeter (Avoid Train Wrecks)**
+### G36: Law of Demeter (Avoid Train Wrecks)
 
 ```java
 // Bad - reaching through multiple objects
@@ -104,6 +104,7 @@ String outputDir = context.getScratchDir();
 ## Enforcement Checklist
 
 When reviewing AI-generated code, verify:
+
 - [ ] No duplication (G5)
 - [ ] Clear intent, no magic numbers (G16, G25)
 - [ ] Polymorphism over conditionals (G23)

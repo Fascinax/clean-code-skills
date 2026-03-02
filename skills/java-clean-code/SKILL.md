@@ -1,4 +1,4 @@
----
+﻿---
 name: java-clean-code
 description: Use when writing, fixing, editing, reviewing, or refactoring any Java code. Enforces Robert Martin's complete Clean Code catalog—naming, functions, comments, DRY, and boundary conditions—adapted for Java.
 ---
@@ -8,6 +8,7 @@ description: Use when writing, fixing, editing, reviewing, or refactoring any Ja
 Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted for Java.
 
 ## Comments (C1-C5)
+
 - C1: No metadata in comments (use Git)
 - C2: Delete obsolete comments immediately
 - C3: No redundant comments
@@ -15,16 +16,19 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - C5: Never commit commented-out code
 
 ## Environment (E1-E2)
+
 - E1: One command to build (`mvn clean install` or `gradle build`)
 - E2: One command to test (`mvn test` or `gradle test`)
 
 ## Functions (F1-F4)
+
 - F1: Maximum 3 arguments (use Builder or parameter objects for more)
 - F2: No output arguments (return values)
 - F3: No flag arguments (split methods)
 - F4: Delete dead methods
 
 ## General (G1-G36)
+
 - G1: One language per file
 - G2: Implement expected behavior
 - G3: Handle boundary conditions
@@ -63,6 +67,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - G36: Law of Demeter (no train wrecks)
 
 ## Java-Specific (J1-J10)
+
 - J1: Use `record` for immutable data classes (Java 16+)
 - J2: Use sealed classes/interfaces for restricted hierarchies (Java 17+)
 - J3: Use pattern matching in `switch` (Java 21+)
@@ -75,6 +80,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - J10: Javadoc for all public APIs
 
 ## Names (N1-N7)
+
 - N1: Choose descriptive names
 - N2: Right abstraction level
 - N3: Use standard nomenclature
@@ -84,6 +90,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - N7: Names describe side effects
 
 ## Tests (T1-T9)
+
 - T1: Test everything that could break
 - T2: Use coverage tools (JaCoCo)
 - T3: Don't skip trivial tests

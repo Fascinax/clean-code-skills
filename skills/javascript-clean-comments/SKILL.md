@@ -34,6 +34,7 @@ const finalAmount = principal * Math.pow(1 + rate / periods, periods * years);
 ## C4: Write Comments Well
 
 If a comment is worth writing, write it well:
+
 - Choose words carefully
 - Use correct grammar
 - Don't ramble or state the obvious

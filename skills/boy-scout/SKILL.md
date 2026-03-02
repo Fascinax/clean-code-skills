@@ -7,7 +7,7 @@ description: Use when fixing, editing, changing, debugging, or working with any 
 
 > "Always leave the campground cleaner than you found it."
 > — Robert Baden-Powell
-
+>
 > "Always check a module in cleaner than when you checked it out."
 > — Robert C. Martin, *Clean Code*
 
@@ -16,6 +16,7 @@ description: Use when fixing, editing, changing, debugging, or working with any 
 You don't have to make every module perfect. You simply have to make it **a little bit better** than when you found it.
 
 If we all followed this simple rule:
+
 - Our systems would gradually get better as they evolved
 - Teams would care for the system as a whole
 - The relentless deterioration of software would end
@@ -25,6 +26,7 @@ If we all followed this simple rule:
 Every time you touch code, look for **at least one small improvement**:
 
 ### Quick Wins (Do These Immediately)
+
 - Rename a poorly named variable → triggers language-specific `clean-names`
 - Delete a redundant comment → triggers language-specific `clean-comments`
 - Remove dead code or unused imports
@@ -32,6 +34,7 @@ Every time you touch code, look for **at least one small improvement**:
 - Extract a deeply nested block into a well-named function
 
 ### Deeper Improvements (When Time Allows)
+
 - Split a function that does multiple things → triggers language-specific `clean-functions`
 - Remove duplication (DRY) → triggers language-specific `clean-general`
 - Add missing boundary checks
@@ -65,6 +68,7 @@ def process_positive_values(
 ```
 
 **What changed:**
+
 - ✅ Descriptive function name (N1)
 - ✅ Clear parameter names (N1)
 - ✅ Type hints (P3)
@@ -77,6 +81,7 @@ def process_positive_values(
 This skill coordinates with specialized skills based on what you're doing and the language:
 
 ### Python
+
 | Task | Trigger Skill |
 |------|---------------|
 | Writing/reviewing any Python | `python-clean-code` (master) |
@@ -87,6 +92,7 @@ This skill coordinates with specialized skills based on what you're doing and th
 | Writing or reviewing tests | `python-clean-tests` |
 
 ### Java
+
 | Task | Trigger Skill |
 |------|---------------|
 | Writing/reviewing any Java | `java-clean-code` (master) |
@@ -97,6 +103,7 @@ This skill coordinates with specialized skills based on what you're doing and th
 | Writing or reviewing tests | `java-clean-tests` |
 
 ### TypeScript
+
 | Task | Trigger Skill |
 |------|---------------|
 | Writing/reviewing any TypeScript | `typescript-clean-code` (master) |
@@ -107,6 +114,7 @@ This skill coordinates with specialized skills based on what you're doing and th
 | Writing or reviewing tests | `typescript-clean-tests` |
 
 ### JavaScript
+
 | Task | Trigger Skill |
 |------|---------------|
 | Writing/reviewing any JavaScript | `javascript-clean-code` (master) |
@@ -119,12 +127,14 @@ This skill coordinates with specialized skills based on what you're doing and th
 ## The Mindset
 
 **Don't:**
+
 - Leave code worse than you found it
 - Say "that's not my code"
 - Wait for a dedicated refactoring sprint
 - Make massive changes unrelated to your task
 
 **Do:**
+
 - Make one small improvement with every commit
 - Fix what you see, even if you didn't break it
 - Keep changes proportional to your task
@@ -133,16 +143,25 @@ This skill coordinates with specialized skills based on what you're doing and th
 ## AI Behavior
 
 When working on code:
+
 1. Detect the language (Python, Java, TypeScript, JavaScript)
 2. Complete the requested task first
-3. Identify at least one small cleanup opportunity
-4. Apply the appropriate language-specific skill
-5. Note the improvement made (e.g., "Also cleaned up: renamed `x` to `results` for clarity")
+3. MUST read and load the relevant sub-skills based on what was touched:
+   - Any code changed → load `{lang}-clean-code` for comprehensive coverage
+   - Names changed → also load `{lang}-clean-names` and apply N1-N7
+   - Functions refactored → also load `{lang}-clean-functions` and apply F1-F4
+   - Comments added/edited → also load `{lang}-clean-comments` and apply C1-C5
+   - Code quality issues → also load `{lang}-clean-general` and apply G5, G16, G23, G25, G30, G36
+   - Tests added/edited → also load `{lang}-clean-tests` and apply T1-T9
+4. Apply every loaded skill's rules and flag each violation with its rule number
+5. Note every improvement made (e.g., "Also cleaned up: renamed `x` to `results` — N1")
 
 When reviewing code:
-1. Load the appropriate `{language}-clean-code` master skill for comprehensive rule checking
-2. Flag violations by rule number
-3. Suggest incremental improvements, not complete rewrites
+
+1. MUST load and read `{language}-clean-code` master skill first
+2. MUST load and read ALL sub-skills: `{lang}-clean-names`, `{lang}-clean-functions`, `{lang}-clean-comments`, `{lang}-clean-general`, `{lang}-clean-tests`
+3. Flag each violation by rule number (e.g., "N1: variable `x` should be `results`")
+4. Suggest incremental improvements, not complete rewrites
 
 ## The Boy Scout Promise
 

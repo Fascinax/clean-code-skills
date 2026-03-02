@@ -7,7 +7,7 @@ description: Use when writing, fixing, editing, or reviewing JavaScript code qua
 
 ## Critical Rules
 
-**G5: DRY (Don't Repeat Yourself)**
+### G5: DRY (Don't Repeat Yourself)
 
 Every piece of knowledge has one authoritative representation.
 
@@ -27,7 +27,7 @@ function calculateTotal(subtotal, state) {
 }
 ```
 
-**G16: No Obscured Intent**
+### G16: No Obscured Intent
 
 Don't be clever. Be clear.
 
@@ -39,7 +39,7 @@ return (x & 0x0F) << 4 | (y & 0x0F);
 return packCoordinates(x, y);
 ```
 
-**G23: Prefer Polymorphism to If/Else**
+### G23: Prefer Polymorphism to If/Else
 
 ```javascript
 // Bad - will grow forever
@@ -80,7 +80,7 @@ function calculatePay(employee) {
 }
 ```
 
-**G25: Replace Magic Numbers with Named Constants**
+### G25: Replace Magic Numbers with Named Constants
 
 ```javascript
 // Bad
@@ -91,11 +91,11 @@ const SECONDS_PER_DAY = 86400;
 if (elapsedTime > SECONDS_PER_DAY) { ... }
 ```
 
-**G30: Functions Should Do One Thing**
+### G30: Functions Should Do One Thing
 
 If you can extract another function, your function does more than one thing.
 
-**G36: Law of Demeter (Avoid Train Wrecks)**
+### G36: Law of Demeter (Avoid Train Wrecks)
 
 ```javascript
 // Bad - reaching through multiple objects
@@ -108,6 +108,7 @@ const outputDir = context.getScratchDir();
 ## Enforcement Checklist
 
 When reviewing AI-generated code, verify:
+
 - [ ] No duplication (G5)
 - [ ] Clear intent, no magic numbers (G16, G25)
 - [ ] Polymorphism over conditionals (G23)

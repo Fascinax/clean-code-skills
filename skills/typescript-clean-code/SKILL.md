@@ -1,4 +1,4 @@
----
+﻿---
 name: typescript-clean-code
 description: Use when writing, fixing, editing, reviewing, or refactoring any TypeScript code. Enforces Robert Martin's complete Clean Code catalog—naming, functions, comments, DRY, and boundary conditions—adapted for TypeScript.
 ---
@@ -8,6 +8,7 @@ description: Use when writing, fixing, editing, reviewing, or refactoring any Ty
 Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted for TypeScript.
 
 ## Comments (C1-C5)
+
 - C1: No metadata in comments (use Git)
 - C2: Delete obsolete comments immediately
 - C3: No redundant comments
@@ -15,16 +16,19 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - C5: Never commit commented-out code
 
 ## Environment (E1-E2)
+
 - E1: One command to build (`npm run build` or `tsc`)
 - E2: One command to test (`npm test`)
 
 ## Functions (F1-F4)
+
 - F1: Maximum 2-3 arguments (use object destructuring for more)
 - F2: No output arguments (return values)
 - F3: No flag arguments (split functions)
 - F4: Delete dead functions
 
 ## General (G1-G36)
+
 - G1: One language per file
 - G2: Implement expected behavior
 - G3: Handle boundary conditions
@@ -63,6 +67,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - G36: Law of Demeter (no train wrecks)
 
 ## TypeScript-Specific (TS1-TS8)
+
 - TS1: Use `unknown` over `any` — always narrow types
 - TS2: Prefer `type` over `interface` (except for extension/declaration merging)
 - TS3: Use discriminated unions for exhaustive pattern matching
@@ -73,6 +78,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - TS8: Use `@ts-expect-error` over `@ts-ignore`
 
 ## Names (N1-N7)
+
 - N1: Choose descriptive names
 - N2: Right abstraction level
 - N3: Use standard nomenclature (camelCase functions, PascalCase types)
@@ -82,6 +88,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - N7: Names describe side effects
 
 ## Tests (T1-T9)
+
 - T1: Test everything that could break
 - T2: Use coverage tools (Istanbul/c8)
 - T3: Don't skip trivial tests

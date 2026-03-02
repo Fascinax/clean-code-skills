@@ -36,6 +36,7 @@ function createUser({ name, email, age, ...rest }: CreateUserParams): User {
 ```
 
 Object destructuring also makes call sites self-documenting:
+
 ```typescript
 // Clear what each argument means
 createUser({ name: 'Alice', email: 'alice@example.com', age: 30, ... });
