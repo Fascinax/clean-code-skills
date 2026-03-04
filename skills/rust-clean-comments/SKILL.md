@@ -210,4 +210,3 @@ fn parse_size(input: &str) -> Result<u64, ParseError> { ... }
 When reviewing comments, cite the rule number (e.g., "C3 violation: redundant comment restates the code").
 When cleaning comments, explain the action (e.g., "Removed metadata comment, use Git for author tracking (C1)").
 For rustdoc, ensure `///` starts with a brief summary sentence. Include `# Errors`, `# Panics`, `# Examples` sections where appropriate.
-

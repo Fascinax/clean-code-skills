@@ -234,4 +234,3 @@ var json = """
 When reviewing code, identify violations by rule number (e.g., "CS3 violation: blocking on `.Result`").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced public field with property (CS1)").
 Before applying Modern C# idioms, check the `<TargetFramework>` and `<LangVersion>` in `.csproj`. C# 8: nullable refs, switch expressions, using declarations. C# 9: records, init-only. C# 10: global usings, file-scoped namespaces. C# 11: raw string literals. C# 12: primary constructors, collection expressions. Default to C# 10 / .NET 6 if no signal found.
-

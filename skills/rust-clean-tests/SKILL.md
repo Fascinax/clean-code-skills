@@ -261,4 +261,3 @@ async fn fetch_order_returns_data() {
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, prefer `rstest` or macro-based parameterized tests for multiple cases.
 Use `#[cfg(test)]` module pattern for unit tests, `tests/` directory for integration tests.
-

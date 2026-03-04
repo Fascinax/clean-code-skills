@@ -244,4 +244,3 @@ slog.Info("order processed",
 When reviewing code, identify violations by rule number (e.g., "GO3 violation: error not checked").
 When fixing or editing code, report what was fixed (e.g., "Fixed: wrapped error with context (GO3)").
 Before applying Modern Go idioms, check `go.mod` for the Go version. Go 1.13+: error wrapping `%w`. Go 1.18+: generics. Go 1.21+: `slog`, `slices`, `maps`. Go 1.22+: range-over-int. Default to Go 1.21 if no signal found.
-

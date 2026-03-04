@@ -265,4 +265,3 @@ func TestReadConfig(t *testing.T) {
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, prefer table-driven tests (GO8) for any function with 2+ test cases.
 When applying test helpers, use `t.Helper()` and `t.Cleanup()` for clean setup/teardown.
-

@@ -202,4 +202,3 @@ public static int CountDigits(ReadOnlySpan<char> text)
 When reviewing code quality, cite the rule number (e.g., "G25 violation: magic number `86400`").
 When refactoring, explain the improvement (e.g., "Extracted constant `SecondsPerDay = 86400` (G25)").
 When applying Modern C# idioms, check `.csproj` for `<LangVersion>` and `<TargetFramework>`. C# 8+: switch expressions, nullable refs. C# 9+: records. C# 10+: global usings, file-scoped namespaces. C# 12+: primary constructors, collection expressions. Default to C# 10 / .NET 6.
-

@@ -166,4 +166,3 @@ func (o *Order) AddItem(item Item)    { ... }  // mutates
 When reviewing functions, cite the rule number (e.g., "F1 violation: 5 arguments, use options struct").
 When refactoring, explain the improvement (e.g., "Extracted `validateOrder` from `ProcessOrder` (G30)").
 Prefer functional options for constructors with many optional parameters.
-

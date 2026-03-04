@@ -199,4 +199,3 @@ public void Validate(Order order) { }
 When reviewing comments, cite the rule number (e.g., "C3 violation: redundant comment restates the code").
 When cleaning comments, explain the action (e.g., "Removed metadata comment, use Git for author tracking (C1)").
 For XML docs, use `<summary>`, `<param>`, `<returns>`, `<exception>` tags. Use `<inheritdoc/>` to avoid duplication.
-

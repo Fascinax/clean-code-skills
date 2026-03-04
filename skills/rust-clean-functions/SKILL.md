@@ -181,4 +181,3 @@ impl From<CreateUserRequest> for User {
 When reviewing functions, cite the rule number (e.g., "F1 violation: 5 arguments, use config struct").
 When refactoring, explain the improvement (e.g., "Extracted `validate_order` from `process_order` (G30)").
 Prefer builder pattern for constructors with 4+ optional fields.
-

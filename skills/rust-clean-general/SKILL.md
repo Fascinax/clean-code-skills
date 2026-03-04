@@ -195,4 +195,3 @@ fn load_config(path: &Path) -> anyhow::Result<Config> {
 When reviewing code quality, cite the rule number (e.g., "G25 violation: magic number `86400`").
 When refactoring, explain the improvement (e.g., "Extracted constant `SECONDS_PER_DAY = 86400` (G25)").
 When applying Modern Rust idioms, check `Cargo.toml` for edition (2018/2021/2024) and dependencies. Default to Edition 2021.
-

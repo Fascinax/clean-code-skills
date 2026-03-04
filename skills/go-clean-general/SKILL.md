@@ -197,4 +197,3 @@ type Service struct {
 When reviewing code quality, cite the rule number (e.g., "G25 violation: magic number `86400`").
 When refactoring, explain the improvement (e.g., "Extracted constant `secondsPerDay = 86400` (G25)").
 When applying Modern Go idioms, check `go.mod` for Go version. Go 1.13+: error wrapping. Go 1.18+: generics. Go 1.21+: `slog`, `slices`, `maps`. Default to Go 1.21 if no signal found.
-

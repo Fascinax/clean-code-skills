@@ -278,4 +278,3 @@ public void User_WithRandomData_IsValid(string name, string email)
 When reviewing tests, cite the rule number (e.g., "T5 violation: no boundary condition tests").
 When writing tests, prefer `[Theory] + [InlineData]` for parameterized cases.
 Use AAA pattern (Arrange/Act/Assert) and `Method_Scenario_Expected` naming.
-

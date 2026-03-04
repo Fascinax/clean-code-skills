@@ -176,4 +176,3 @@ func NewClient() *Client {
 When reviewing comments, cite the rule number (e.g., "C3 violation: redundant comment restates the code").
 When cleaning comments, explain the action (e.g., "Removed metadata comment, use Git for author tracking (C1)").
 For godoc, ensure comments start with the declared name (e.g., "// FindByID returns...").
-

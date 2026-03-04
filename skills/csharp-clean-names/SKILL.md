@@ -186,4 +186,3 @@ public record Address(string Street, string City, string PostalCode);
 When reviewing names, cite the rule number (e.g., "N3 violation: method should be PascalCase").
 When renaming, explain the change (e.g., "Renamed `proc` → `ProcessOrder` for clarity (N1)").
 Follow .NET conventions: `Async` suffix, `_camelCase` fields, `I` prefix interfaces, PascalCase everything else.
-

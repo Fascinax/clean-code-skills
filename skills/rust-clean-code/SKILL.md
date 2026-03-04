@@ -226,4 +226,3 @@ struct OrderId(String);
 When reviewing code, identify violations by rule number (e.g., "RS2 violation: `unwrap()` in library code").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced `clone()` with borrow (RS1)").
 Before applying Modern Rust idioms, check `Cargo.toml` for the Rust edition (2018, 2021, 2024) and dependency versions. Edition 2021: default. Edition 2024: new `use` rules. Default to Edition 2021 if no signal found.
-

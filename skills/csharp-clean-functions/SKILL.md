@@ -154,4 +154,3 @@ private (bool IsValid, string? ErrorMessage) Validate(Order order)
 When reviewing methods, cite the rule number (e.g., "F1 violation: 5 arguments, use request record").
 When refactoring, explain the improvement (e.g., "Extracted `ValidateOrder` from `ProcessOrder` (G30)").
 Prefer expression-bodied members for single-expression methods. Use `record` for request/response DTOs.
-

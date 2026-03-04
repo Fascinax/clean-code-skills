@@ -186,4 +186,3 @@ mod payment_gateway;
 When reviewing names, cite the rule number (e.g., "N3 violation: use `PascalCase` for types").
 When renaming, explain the change (e.g., "Renamed `proc` → `process_order` for clarity (N1)").
 Follow Rust conventions: `as_`/`to_`/`into_` conversions, no `get_` prefix on getters, `is_`/`has_` for booleans.
-

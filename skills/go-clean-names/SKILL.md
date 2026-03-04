@@ -183,4 +183,3 @@ var xmlAPI string  // not xmlApi
 When reviewing names, cite the rule number (e.g., "N3 violation: use `HTTPClient` not `HttpClient`").
 When renaming, explain the change (e.g., "Renamed `proc` → `processOrder` for clarity (N1)").
 Follow Go conventions: no getters with `Get` prefix, `-er` interfaces, `Err` prefix for sentinel errors.
-
