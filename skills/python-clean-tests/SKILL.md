@@ -1,9 +1,9 @@
 ---
 name: python-clean-tests
-description: Use when writing, fixing, editing, or refactoring Python tests. Enforces Clean Code principles—fast tests, boundary coverage, one assert per test.
+description: Use when writing, fixing, editing, or refactoring Python tests. Enforces Clean Code principles—fast tests, boundary coverage, one assert per test, pytest best practices.
 ---
 
-# Clean Tests
+# Clean Tests (Python)
 
 ## T1: Insufficient Tests
 

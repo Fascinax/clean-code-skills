@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        files: '\.md$'
+      - id: end-of-file-fixer
+        files: '\.md$'
+      - id: check-yaml
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.17.1
+    hooks:
+      - id: markdownlint-cli2
+        args: ['--config', '.markdownlint.yml']
+        files: '\.md$'
+
+  - repo: local
+    hooks:
+      - id: validate-skills
+        name: Validate SKILL.md structure
+        entry: python scripts/validate_skills.py
+        language: python
+        pass_filenames: false
+        files: 'skills/.*SKILL\.md$'
+        additional_dependencies: ['pyyaml']

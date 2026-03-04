@@ -3,7 +3,7 @@ name: python-clean-names
 description: Use when naming, renaming, or fixing names of variables, functions, classes, or modules in Python. Enforces Clean Code principles—descriptive names, appropriate length, no encodings.
 ---
 
-# Clean Names
+# Clean Names (Python)
 
 ## N1: Choose Descriptive Names
 

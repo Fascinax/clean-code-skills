@@ -99,10 +99,14 @@ const strName = 'Alice';
 const arrUsers = [];
 const numCount = 0;
 
+// Bad - interface prefix
+class IUserRepository { ... }
+
 // Good - clean names
 const name = 'Alice';
 const users = [];
 const count = 0;
+class UserRepository { ... }
 ```
 
 ## N7: Names Should Describe Side Effects

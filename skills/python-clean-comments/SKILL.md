@@ -3,12 +3,28 @@ name: python-clean-comments
 description: Use when writing, fixing, editing, or reviewing Python comments and docstrings. Enforces Clean Code principles—no metadata, no redundancy, no commented-out code.
 ---
 
-# Clean Comments
+# Clean Comments (Python)
 
 ## C1: No Inappropriate Information
 
 Comments shouldn't hold metadata. Use Git for author names, change history,
 ticket numbers, and dates. Comments are for technical notes about code only.
+
+```python
+# Bad - metadata belongs in Git
+# Author: John Doe
+# Created: 2024-01-15
+# Modified: 2024-03-01 by Jane
+# Ticket: JIRA-1234
+class OrderService:
+    ...
+
+# Good - only technical documentation
+class OrderService:
+    """Processes orders by validating inventory, calculating totals,
+    and dispatching to the fulfillment system."""
+    ...
+```
 
 ## C2: Delete Obsolete Comments
 
@@ -119,6 +135,17 @@ def eligible_for_discount(user: User) -> bool:
 The best comment is the code itself. If you need a comment to explain
 what code does, refactor first, comment last.
 
+```python
+# Bad - comment needed to explain intent
+# Check if user is eligible for the premium discount
+if user.years >= 2 and user.total > 1000:
+    apply_discount(user)
+
+# Good - self-documenting code, no comment needed
+if user.is_eligible_for_premium_discount:
+    apply_discount(user)
+```
+
 ## Quick Reference
 
 | Rule | Principle | Key Signal |
@@ -128,6 +155,7 @@ what code does, refactor first, comment last.
 | C3 | No redundant comments | Code says it already → remove comment |
 | C4 | Write comments well | Brief, precise, explains WHY not WHAT |
 | C5 | No commented-out code | Dead code → delete, Git remembers |
+| P3 | Type hints reduce comment need | Types are docs → skip obvious docstrings |
 
 ## AI Behavior
 

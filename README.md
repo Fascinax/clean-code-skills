@@ -131,6 +131,41 @@ cp -r /tmp/clean-code-skills/skills/* ~/.claude/skills/ && \
 rm -rf /tmp/clean-code-skills
 ```
 
+### GitHub Copilot (VS Code)
+
+**Project-specific** (applies to one project):
+
+```bash
+# From your project root
+mkdir -p .copilot/skills
+cp -r skills/* .copilot/skills/
+```
+
+Copilot will automatically discover skills in `.copilot/skills/` and `.github/copilot-skills/`.
+
+**Global** (applies to all projects):
+
+```bash
+# Windows (PowerShell)
+mkdir -Force "$env:USERPROFILE\.copilot\skills"
+Copy-Item -Recurse skills\* "$env:USERPROFILE\.copilot\skills\"
+
+# macOS/Linux
+mkdir -p ~/.copilot/skills
+cp -r skills/* ~/.copilot/skills/
+```
+
+**Quick install** (global, one command — macOS/Linux):
+
+```bash
+git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
+mkdir -p ~/.copilot/skills && \
+cp -r /tmp/clean-code-skills/skills/* ~/.copilot/skills/ && \
+rm -rf /tmp/clean-code-skills
+```
+
+You can also add skills as Custom Instructions by copying the content of a `SKILL.md` file into `.github/copilot-instructions.md` at the root of your project.
+
 ### Other Agent Skills-Compatible Tools
 
 The skills follow the [Agent Skills](https://agentskills.io) open standard. Check your tool's documentation for the skills directory location, then copy the `skills/` folder contents there.

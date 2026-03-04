@@ -3,7 +3,7 @@ name: python-clean-general
 description: Use when writing, fixing, editing, or reviewing Python code quality. Enforces Clean Code's core principles—DRY, single responsibility, clear intent, no magic numbers, proper abstractions.
 ---
 
-# General Clean Code Principles
+# General Clean Code Principles (Python)
 
 ## Critical Rules
 
