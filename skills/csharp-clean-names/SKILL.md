@@ -37,19 +37,21 @@ public User FindById(string id)
 
 ## N3: Use Standard Nomenclature
 
-.NET conventions: PascalCase methods/properties/types, camelCase locals/params, `I` prefix interfaces.
+.NET conventions: PascalCase methods/properties/types/constants, camelCase locals/params, `I` prefix interfaces.
 
 ```csharp
 // Bad — violates .NET naming conventions
 public class order_service { }       // should be PascalCase
 public void processOrder() { }       // should be PascalCase
 private string Name;                 // field should be _camelCase
+const int max_retries = 3;           // constants are PascalCase
 
 // Good — idiomatic C#
 public class OrderService { }
 public void ProcessOrder() { }
 private readonly string _name;
 public string Name { get; }
+const int MaxRetries = 3;            // PascalCase for all constants
 ```
 
 ## N4: Unambiguous Names
@@ -122,10 +124,24 @@ public Task<Order> GetOrderAsync(string id, CancellationToken ct) { ... }
 public Task SaveAsync(Order order, CancellationToken ct) { ... }
 
 // Private fields: _camelCase with underscore prefix
+// Static private fields: s_ prefix (.NET Runtime convention)
+// Thread-static fields: t_ prefix
 public class OrderService
 {
     private readonly IOrderRepository _repository;
     private readonly ILogger<OrderService> _logger;
+    private static readonly HttpClient s_httpClient = new();
+    [ThreadStatic] private static TimeSpan t_timeout;
+}
+
+// Methods are verbs/verb phrases, properties are nouns/adjectives
+// (Framework Design Guidelines)
+public class Order
+{
+    public decimal Total { get; }            // noun — property
+    public bool IsValid { get; }             // adjective — property
+    public void Submit() { }                 // verb — method
+    public decimal CalculateTotal() { }      // verb phrase — method
 }
 
 // Boolean properties/methods: Is, Has, Can prefix

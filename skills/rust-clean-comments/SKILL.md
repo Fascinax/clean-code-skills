@@ -179,14 +179,17 @@ unsafe {
 
 ### Doc-Test Examples as Living Documentation
 
+Use `?` instead of `unwrap()` in doc examples — it teaches proper error handling and readers copy-paste examples (Rust API Guidelines: C-EXAMPLE).
+
 ```rust
 /// Parses a size string into bytes.
 ///
 /// ```
 /// # use mylib::parse_size;
-/// assert_eq!(parse_size("1KB"), Ok(1024));
-/// assert_eq!(parse_size("5MB"), Ok(5 * 1024 * 1024));
+/// assert_eq!(parse_size("1KB")?, 1024);
+/// assert_eq!(parse_size("5MB")?, 5 * 1024 * 1024);
 /// assert!(parse_size("invalid").is_err());
+/// # Ok::<(), mylib::ParseError>(())
 /// ```
 fn parse_size(input: &str) -> Result<u64, ParseError> { ... }
 ```

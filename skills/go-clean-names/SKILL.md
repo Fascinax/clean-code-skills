@@ -118,14 +118,18 @@ func OpenConnectionPool() *sql.DB {
 package user    // not: package users, package userService
 package http    // not: package httpUtils
 
+// Don't repeat the package name in exported names (Effective Go)
+// Bad: http.HTTPServer, user.UserService
+// Good: http.Server, user.Service
+
 // Receiver names: short, consistent, never "this" or "self"
 func (s *OrderService) Process(ctx context.Context, o Order) error { ... }
 func (s *OrderService) Cancel(ctx context.Context, id string) error { ... }
 
-// Error variables: Err prefix
+// Error variables: Err prefix, lowercase messages, no punctuation
 var (
-    ErrNotFound     = errors.New("not found")
-    ErrUnauthorized = errors.New("unauthorized")
+    ErrNotFound     = errors.New("not found")      // not "Not found."
+    ErrUnauthorized = errors.New("unauthorized")    // not "Unauthorized!"
 )
 
 // Error types: Error suffix
@@ -140,6 +144,11 @@ type Reader interface { Read(p []byte) (int, error) }
 type Stringer interface { String() string }
 type Handler interface { ServeHTTP(ResponseWriter, *Request) }
 
+// Interfaces belong in the consumer package, not the producer
+// (Go Code Review Comments: define interfaces where they are used)
+// package storage — defines concrete StorageClient
+// package billing — defines interface: type Storage interface { Get(key string) ([]byte, error) }
+
 // Constructor: New prefix
 func NewOrderService(repo OrderRepository) *OrderService { ... }
 
@@ -150,10 +159,11 @@ func (u *User) SetName(n string) { u.name = n }  // setter keeps Set prefix
 // Context always first parameter, named ctx
 func FetchOrder(ctx context.Context, id string) (*Order, error) { ... }
 
-// Acronyms: all-caps when exported
+// Acronyms: all-caps when exported (ID not Id, URL not Url, HTTP not Http)
 type HTTPClient struct{}
 type JSONParser struct{}
 var userID string  // not userId
+var xmlAPI string  // not xmlApi
 ```
 
 ## Quick Reference

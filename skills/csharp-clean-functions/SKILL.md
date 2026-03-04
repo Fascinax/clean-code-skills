@@ -119,11 +119,15 @@ public static class OrderExtensions
 }
 
 // CancellationToken as last parameter (async convention)
+// In library code, use ConfigureAwait(false) to avoid
+// capturing the synchronization context (prevents deadlocks).
 public async Task<Order> GetOrderAsync(
     string orderId,
     bool includeItems = false,
     CancellationToken ct = default)
 {
+    var order = await _repository.FindByIdAsync(orderId, ct)
+        .ConfigureAwait(false); // library code: always ConfigureAwait(false)
     // ...
 }
 

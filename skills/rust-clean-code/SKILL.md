@@ -76,6 +76,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - RS6: Exhaustive pattern matching — no wildcard `_` on enums (catch breaking changes)
 - RS7: Use `thiserror` for library errors, `anyhow` for application errors
 - RS8: Minimize `unsafe` — document invariants when unavoidable
+- RS9: Implement `Send` + `Sync` where safe — enables use across threads (Rust API Guidelines: C-SEND-SYNC)
 
 ## Names (N1-N7)
 

@@ -127,6 +127,8 @@ func ProcessOrder(ctx context.Context, order Order) error {
 }
 
 // Closure for deferred setup/teardown
+// NOTE: defer is function-scoped, not block-scoped (Effective Go).
+// A defer inside an if/for block runs at function return, not at block exit.
 func withTransaction(db *sql.DB, fn func(tx *sql.Tx) error) error {
     tx, err := db.Begin()
     if err != nil {

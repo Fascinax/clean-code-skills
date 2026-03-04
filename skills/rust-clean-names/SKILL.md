@@ -112,12 +112,19 @@ fn open_connection() -> Result<Connection, DbError> {
 ## Modern Rust Naming Idioms
 
 ```rust
-// Conversion methods: as_, to_, into_
+// Conversion methods follow C-CONV (Rust API Guidelines):
+// as_  — free, borrowed→borrowed (&self → &T)
+// to_  — expensive, borrowed→owned (&self → T)
+// into_— owned→owned (self → T), consumes the value
 impl Temperature {
-    fn as_celsius(&self) -> f64 { ... }    // cheap, borrowed view
-    fn to_string(&self) -> String { ... }  // expensive, new allocation
-    fn into_inner(self) -> f64 { ... }     // consumes self
+    fn as_celsius(&self) -> f64 { ... }       // cheap borrow→borrow
+    fn to_string(&self) -> String { ... }     // expensive borrow→owned
+    fn into_inner(self) -> f64 { ... }        // consumes self
 }
+
+// C-WORD-ORDER: types named verb-object-error (Rust API Guidelines)
+// Good: ParseIntError, ReadDirError
+// Bad: IntParseError, DirReadError
 
 // Constructor: new (returns Self)
 impl OrderService {

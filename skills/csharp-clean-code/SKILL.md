@@ -76,6 +76,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 - CS6: Use pattern matching in switch expressions (C# 8+)
 - CS7: Use `using` declarations over `using` blocks (C# 8+)
 - CS8: Use primary constructors for DI (C# 12+)
+- CS9: Use `var` only when the type is obvious from the right side — use explicit types when a reader can't infer (Microsoft coding conventions)
 
 ## Names (N1-N7)
 
@@ -121,6 +122,7 @@ Enforces all Clean Code principles from Robert C. Martin's Chapter 17, adapted f
 | | CS3 | async/await, never `.Result` |
 | | CS5 | Nullable reference types enabled |
 | | CS6 | Pattern matching switch expressions |
+| | CS9 | `var` only when type is obvious |
 | **Names** | N1 | Descriptive names |
 | | N5 | Name length matches scope |
 | **Tests** | T5 | Test boundary conditions |
@@ -207,6 +209,12 @@ public class OrderService(
         return order;
     }
 }
+
+// CS9: var usage — only when type is obvious (Microsoft conventions)
+var message = "This is clearly a string.";           // OK — type is obvious
+var customer = new Customer("Alice");                // OK — type is obvious from new
+int numberOfRetries = GetRetryCount();               // explicit — type not obvious
+UserProfile profile = LoadProfile(userId);           // explicit — method return type unclear
 
 // Collection expressions (C# 12+)
 List<int> numbers = [1, 2, 3, 4, 5];

@@ -181,6 +181,8 @@ func TestParseSize(t *testing.T) {
 
 ### Test Helpers
 
+Never call `t.Fatal` or `t.FailNow` from a goroutine other than the test goroutine — it causes undefined behavior (Go testing docs). Use `t.Error` and check in the main goroutine instead.
+
 ```go
 // testutil package or helpers in _test.go
 func newTestServer(t *testing.T) *httptest.Server {

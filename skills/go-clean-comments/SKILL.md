@@ -58,7 +58,7 @@ Git remembers everything. Delete it.
 
 ## Godoc Best Practices
 
-Go has a strong convention: doc comments start with the name of the thing they describe.
+Go has a strong convention: doc comments start with the name of the thing they describe and are complete sentences ending in a period (Go Code Review Comments).
 
 ### Package Comments
 
