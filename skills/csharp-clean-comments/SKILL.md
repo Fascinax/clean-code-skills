@@ -42,6 +42,7 @@ i++; // compensate for zero-indexing in display
 ## C4: Write Comments Well
 
 If a comment is worth writing, write it well:
+
 - Use single-line comments (`//`) — avoid multi-line `/* */` (Microsoft coding conventions)
 - Begin comment text with an uppercase letter
 - End comment text with a period
