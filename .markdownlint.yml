@@ -1,0 +1,29 @@
+# markdownlint configuration
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+default: true
+
+# Allow long lines in tables and code blocks
+MD013:
+  line_length: 300
+  tables: false
+  code_blocks: false
+
+# Allow multiple headings with the same content (different skills may repeat)
+MD024:
+  siblings_only: true
+
+# Allow inline HTML (badges in README)
+MD033: false
+
+# Allow bare URLs in resource sections
+MD034: false
+
+# Allow emphasis used as heading (used in some skill files)
+MD036: false
+
+# Allow non-blank lines before/after fenced code blocks
+MD031: false
+
+# Allow trailing punctuation in headings (rule numbers like "F1:")
+MD026: false
