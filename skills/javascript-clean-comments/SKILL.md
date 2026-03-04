@@ -99,6 +99,72 @@ if (user.age >= 65 || user.memberSince < cutoffDate) { ... }
 if (user.isEligibleForDiscount()) { ... }
 ```
 
+## Modern JavaScript Comment Idioms
+
+### `@deprecated` JSDoc Tag Triggers IDE Strikethrough
+
+```javascript
+// Bad — comment that tooling ignores
+// Deprecated: use newApi() instead
+function oldApi() { ... }
+
+// Good — JSDoc tag gives IDE warnings and strikethrough
+/** @deprecated Use {@link newApi} instead. Will be removed in v3.0. */
+function oldApi() { ... }
+```
+
+### `// @ts-check` Turns JSDoc Into a Type System
+
+```javascript
+// @ts-check
+
+// Bad — JSDoc exists but nobody verifies it
+/** @param {string} name */
+function greet(name) { return `Hello, ${name}`; }
+greet(42); // silent bug
+
+// Good — @ts-check makes the type checker enforce JSDoc types
+/** @param {string} name */
+function greet(name) { return `Hello, ${name}`; }
+greet(42); // type error: Argument of type 'number' is not assignable
+```
+
+### `@template` Documents Generics in Plain JS
+
+```javascript
+// Bad — prose describing generic behavior
+/**
+ * Returns the first element. Works with any array type.
+ */
+function first(arr) { return arr[0]; }
+
+// Good — @template makes the generic contract explicit
+/**
+ * @template T
+ * @param {T[]} arr
+ * @returns {T}
+ */
+function first(arr) { return arr[0]; }
+```
+
+### `@typedef` Replaces Shape-Description Comments
+
+```javascript
+// Bad — prose describing an object shape
+// options: { title: string, body: string, cancellable?: boolean }
+
+// Good — reusable typedef checked by IDE
+/**
+ * @typedef {Object} MenuOptions
+ * @property {string} title - Menu title
+ * @property {string} body - Menu body text
+ * @property {boolean} [cancellable=false] - Whether menu can be dismissed
+ */
+
+/** @param {MenuOptions} options */
+function createMenu(options) { ... }
+```
+
 ## Quick Reference
 
 | Rule | Principle | Key Signal |

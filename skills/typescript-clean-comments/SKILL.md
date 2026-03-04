@@ -99,6 +99,54 @@ type Status = 'active' | 'inactive' | 'pending';
 let status: Status;
 ```
 
+## Modern TypeScript Comment Idioms
+
+### `satisfies` Replaces Type-Assertion Comments
+
+```typescript
+// Bad — comment to explain type intent
+// This config must match the Config type
+const config = { port: 3000, host: 'localhost' } as Config;
+
+// Good — satisfies validates at compile time without widening
+const config = { port: 3000, host: 'localhost' } satisfies Config;
+```
+
+### `@deprecated` JSDoc Tag Triggers IDE Strikethrough
+
+```typescript
+// Bad — comment that tooling can't enforce
+// Deprecated: use newApi() instead
+function oldApi(): void { ... }
+
+// Good — type checker and IDE both warn callers
+/** @deprecated Use {@link newApi} instead. Will be removed in v3.0. */
+function oldApi(): void { ... }
+```
+
+### Template Literal Types Are Self-Documenting
+
+```typescript
+// Bad — comment describing allowed formats
+/** Must be a CSS color like '#ff0000' or 'rgb(255,0,0)' */
+type Color = string;
+
+// Good — type itself documents the format
+type HexColor = `#${string}`;
+type RgbColor = `rgb(${number},${number},${number})`;
+type Color = HexColor | RgbColor;
+```
+
+### `import type` Signals Documentation-Only Imports
+
+```typescript
+// Bad — unclear if import is used at runtime
+import { User } from './models';
+
+// Good — explicit: this import is for type-checking only
+import type { User } from './models';
+```
+
 ## Quick Reference
 
 | Rule | Principle | Key Signal |

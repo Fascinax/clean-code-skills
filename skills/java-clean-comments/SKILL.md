@@ -121,6 +121,61 @@ if (user.getAge() >= 65 || user.getMemberSince().isBefore(cutoffDate)) { ... }
 if (user.isEligibleForDiscount()) { ... }
 ```
 
+## Modern Java Comment Idioms
+
+### `@snippet` Replaces Hand-Written Code in Javadoc (JDK 18+)
+
+```java
+// Bad — manually maintained code example that drifts from reality
+/**
+ * Example:
+ * <pre>{@code
+ *   var list = List.of("a", "b");
+ * }</pre>
+ */
+
+// Good — snippet references verified source code
+/**
+ * Example:
+ * {@snippet file="ListExample.java" region="creation"}
+ */
+```
+
+### Records Need Minimal Javadoc
+
+```java
+// Bad — boilerplate Javadoc on a self-documenting record
+/**
+ * Represents a user with a name and email.
+ * @param name the user's name
+ * @param email the user's email
+ */
+public record UserDto(String name, String email) {}
+
+// Good — record fields are self-documenting; add Javadoc only for non-obvious constraints
+/** DTO for user display. Email is always lower-cased on creation. */
+public record UserDto(String name, String email) {
+    public UserDto {
+        email = email.toLowerCase();
+    }
+}
+```
+
+### `{@return}` Shorthand (JDK 16+)
+
+```java
+// Bad — verbose @return that repeats the summary
+/**
+ * Returns the canonical name.
+ * @return the canonical name
+ */
+public String getCanonicalName() { ... }
+
+// Good — inline return tag generates both summary and @return
+/** {@return the canonical name of this type} */
+public String getCanonicalName() { ... }
+```
+
 ## Quick Reference
 
 | Rule | Principle | Key Signal |

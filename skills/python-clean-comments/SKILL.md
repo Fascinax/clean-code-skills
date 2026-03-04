@@ -146,6 +146,60 @@ if user.is_eligible_for_premium_discount:
     apply_discount(user)
 ```
 
+## Modern Python Comment Idioms
+
+### `@typing.override` Replaces "Overrides" Comments (3.12+)
+
+```python
+# Bad — manual "overrides" comment
+class Sub(Base):
+    def log_status(self) -> None:  # overrides Base.log_status
+        ...
+
+# Good — decorator is verified by the type checker
+from typing import override
+
+class Sub(Base):
+    @override
+    def log_status(self) -> None:
+        ...
+```
+
+### `@warnings.deprecated` Replaces "Deprecated" Comments (3.13+)
+
+```python
+# Bad — comment that tooling can't enforce
+def old_api():
+    """Deprecated: use new_api() instead."""
+    ...
+
+# Good — type checkers and runtime both catch usage
+from warnings import deprecated
+
+@deprecated("Use new_api() instead")
+def old_api():
+    ...
+```
+
+### Let `@overload` Document Variants Instead of Prose
+
+```python
+# Bad — long docstring listing all input/output combos
+def parse(value):
+    """Parse a value. If str, returns int. If bytes, returns str."""
+    ...
+
+# Good — overloads are the documentation
+from typing import overload
+
+@overload
+def parse(value: str) -> int: ...
+@overload
+def parse(value: bytes) -> str: ...
+def parse(value):
+    ...
+```
+
 ## Quick Reference
 
 | Rule | Principle | Key Signal |
