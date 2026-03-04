@@ -2,11 +2,11 @@
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-blue)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Languages](https://img.shields.io/badge/Languages-Python%20%7C%20Java%20%7C%20TypeScript%20%7C%20JavaScript-orange)](#whats-included)
+[![Languages](https://img.shields.io/badge/Languages-Python%20%7C%20Java%20%7C%20TypeScript%20%7C%20JavaScript%20%7C%20Go%20%7C%20Rust%20%7C%20C%23-orange)](#whats-included)
 
 **Teach your AI to write code that doesn't suck — in any language.**
 
-This repository contains [Agent Skills](https://agentskills.io) that enforce Robert C. Martin's *Clean Code* principles for **Python, Java, TypeScript, and JavaScript**. They work with Google Antigravity, Anthropic's Claude Code, and any agent that supports the Agent Skills standard.
+This repository contains [Agent Skills](https://agentskills.io) that enforce Robert C. Martin's *Clean Code* principles for **Python, Java, TypeScript, JavaScript, Go, Rust, and C#**. They work with Google Antigravity, Anthropic's Claude Code, and any agent that supports the Agent Skills standard.
 
 Each language gets its own set of 6 skills (1 master + 5 category skills), all sharing the same universal Clean Code rules (C1-C5, F1-F4, G1-G36, N1-N7, T1-T9) while adding language-specific idioms and modern features.
 
@@ -30,6 +30,9 @@ These skills encode battle-tested solutions to exactly these problems—directly
 | **Java** | `java-clean-code` | `java-clean-names`, `java-clean-functions`, `java-clean-comments`, `java-clean-general`, `java-clean-tests` | J1-J10 |
 | **TypeScript** | `typescript-clean-code` | `typescript-clean-names`, `typescript-clean-functions`, `typescript-clean-comments`, `typescript-clean-general`, `typescript-clean-tests` | TS1-TS8 |
 | **JavaScript** | `javascript-clean-code` | `javascript-clean-names`, `javascript-clean-functions`, `javascript-clean-comments`, `javascript-clean-general`, `javascript-clean-tests` | JS1-JS7 |
+| **Go** | `go-clean-code` | `go-clean-names`, `go-clean-functions`, `go-clean-comments`, `go-clean-general`, `go-clean-tests` | GO1-GO8 |
+| **Rust** | `rust-clean-code` | `rust-clean-names`, `rust-clean-functions`, `rust-clean-comments`, `rust-clean-general`, `rust-clean-tests` | RS1-RS8 |
+| **C#** | `csharp-clean-code` | `csharp-clean-names`, `csharp-clean-functions`, `csharp-clean-comments`, `csharp-clean-general`, `csharp-clean-tests` | CS1-CS8 |
 
 Plus the language-agnostic **`boy-scout`** orchestrator that coordinates all skills.
 
@@ -64,6 +67,18 @@ Each language extends the universal Clean Code catalog with idiomatic rules:
 #### JavaScript (JS1-JS7)
 
 - JS1: `const` by default, never `var` — JS2: Object destructuring — JS3: async/await — JS4: ES6+ classes — JS5: Functional patterns — JS6: `===` strict equality — JS7: Default parameters
+
+#### Go (GO1-GO8)
+
+- GO1: PascalCase exported, camelCase local — GO2: Accept interfaces, return structs — GO3: Always check and wrap errors — GO4: `go fmt` is non-negotiable — GO5: Small interfaces (1-2 methods) — GO6: `defer` for cleanup — GO7: Goroutine safety with context — GO8: Table-driven tests
+
+#### Rust (RS1-RS8)
+
+- RS1: Borrow before clone — RS2: `Result`/`Option`, never panic — RS3: Derive standard traits — RS4: Iterators over manual loops — RS5: `cargo clippy` zero warnings — RS6: Exhaustive pattern matching — RS7: `thiserror`/`anyhow` for errors — RS8: Minimize `unsafe`
+
+#### C# (CS1-CS8)
+
+- CS1: Properties, not public fields — CS2: LINQ over manual loops — CS3: async/await, never `.Result` — CS4: Records for immutable data — CS5: Nullable reference types enabled — CS6: Pattern matching switch expressions — CS7: `using` declarations — CS8: Primary constructors for DI
 
 Use the master skill for comprehensive coverage, or individual skills for targeted enforcement.
 
@@ -356,6 +371,45 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 | JS6 | Use `===` strict equality — never `==` |
 | JS7 | Use default parameters instead of short-circuiting |
 
+### Go-Specific (GO1-GO8)
+
+| Rule | Principle |
+|------|----------|
+| GO1 | Exported PascalCase, unexported camelCase — no underscores |
+| GO2 | Accept interfaces, return structs |
+| GO3 | Always check errors — wrap with `fmt.Errorf("...: %w", err)` |
+| GO4 | `go fmt` is non-negotiable |
+| GO5 | Small interfaces (1-2 methods) |
+| GO6 | Use `defer` for cleanup |
+| GO7 | Goroutine safety — use `context.Context`, never leak goroutines |
+| GO8 | Table-driven tests |
+
+### Rust-Specific (RS1-RS8)
+
+| Rule | Principle |
+|------|----------|
+| RS1 | Prefer borrowing over cloning — `&T` and `&mut T` first |
+| RS2 | Use `Result`/`Option` — never `panic!` in library code |
+| RS3 | Derive standard traits (`Debug`, `Clone`, `PartialEq`, `Default`) |
+| RS4 | Use iterators over manual loops |
+| RS5 | Run `cargo clippy` — treat warnings as errors |
+| RS6 | Exhaustive pattern matching — no wildcard `_` on enums |
+| RS7 | `thiserror` for library errors, `anyhow` for application errors |
+| RS8 | Minimize `unsafe` — document invariants |
+
+### C#-Specific (CS1-CS8)
+
+| Rule | Principle |
+|------|----------|
+| CS1 | Use properties, not public fields |
+| CS2 | Use LINQ for collection operations |
+| CS3 | async/await all the way — never `.Result` or `.Wait()` |
+| CS4 | Use `record` for immutable data (C# 9+) |
+| CS5 | Enable nullable reference types |
+| CS6 | Pattern matching switch expressions (C# 8+) |
+| CS7 | `using` declarations over `using` blocks (C# 8+) |
+| CS8 | Primary constructors for DI (C# 12+) |
+
 ### Tests (T1-T9)
 
 | Rule | Principle |
@@ -409,6 +463,12 @@ skills/
 │   └── SKILL.md
 ├── javascript-clean-code/          # JavaScript master
 │   └── SKILL.md
+├── go-clean-code/                  # Go master
+│   └── SKILL.md
+├── rust-clean-code/                # Rust master
+│   └── SKILL.md
+├── csharp-clean-code/              # C# master
+│   └── SKILL.md
 │   ... (5 category skills per language)
 └── my-team-standards/              # Your custom skill
     └── SKILL.md
@@ -444,7 +504,7 @@ This keeps the agent fast—it's not thinking about database migrations when you
 PRs welcome! Some ideas:
 
 - [x] ~~Additional language support~~ — Java, TypeScript, JavaScript added!
-- [ ] Additional language support (Go, Rust, C#)
+- [x] ~~Additional language support~~ — Go, Rust, C# added!
 - [ ] SOLID principles as dedicated skills
 - [ ] Framework-specific skills (React, Angular, Spring Boot)
 - [ ] Integration tests
@@ -475,6 +535,15 @@ PRs welcome! Some ideas:
 - [Java Clean Code: Modern Practices for 2025](https://atruedev.com/blog/java-clean-code) — Records, sealed classes, virtual threads
 - [The Hitchhiker's Guide to Python — Code Style](https://docs.python-guide.org/writing/style/) — PEP 8, idioms, and conventions
 - [quantifiedcode/python-anti-patterns](https://github.com/quantifiedcode/python-anti-patterns) — Categorized Python anti-patterns book
+
+### Go, Rust, C# References
+
+- [Effective Go](https://go.dev/doc/effective_go) — Official Go best practices
+- [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments) — Go community conventions
+- [The Rust Programming Language](https://doc.rust-lang.org/book/) — Official Rust book
+- [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/) — Naming, interoperability, documentation
+- [C# Coding Conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions) — Microsoft official style
+- [.NET Framework Design Guidelines](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/) — Naming, type design, member design
 
 ### Tools & Platforms
 

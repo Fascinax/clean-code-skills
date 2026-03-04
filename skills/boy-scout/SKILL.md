@@ -1,6 +1,6 @@
 ---
 name: boy-scout
-description: Use when fixing, editing, changing, debugging, or working with any Python, Java, TypeScript, JavaScript code. Applies the Boy Scout Rule—always leave code cleaner than you found it. Orchestrates other clean code skills as needed.
+description: Use when fixing, editing, changing, debugging, or working with any Python, Java, TypeScript, JavaScript, Go, Rust, C# code. Applies the Boy Scout Rule—always leave code cleaner than you found it. Orchestrates other clean code skills as needed.
 ---
 
 # The Boy Scout Rule
@@ -124,6 +124,39 @@ This skill coordinates with specialized skills based on what you're doing and th
 | Reviewing code quality | `javascript-clean-general` |
 | Writing or reviewing tests | `javascript-clean-tests` |
 
+### Go
+
+| Task | Trigger Skill |
+|------|---------------|
+| Writing/reviewing any Go | `go-clean-code` (master) |
+| Naming variables, functions, types | `go-clean-names` |
+| Writing or editing comments/godoc | `go-clean-comments` |
+| Creating or refactoring functions | `go-clean-functions` |
+| Reviewing code quality | `go-clean-general` |
+| Writing or reviewing tests | `go-clean-tests` |
+
+### Rust
+
+| Task | Trigger Skill |
+|------|---------------|
+| Writing/reviewing any Rust | `rust-clean-code` (master) |
+| Naming variables, functions, types | `rust-clean-names` |
+| Writing or editing comments/rustdoc | `rust-clean-comments` |
+| Creating or refactoring functions | `rust-clean-functions` |
+| Reviewing code quality | `rust-clean-general` |
+| Writing or reviewing tests | `rust-clean-tests` |
+
+### C\#
+
+| Task | Trigger Skill |
+|------|---------------|
+| Writing/reviewing any C# | `csharp-clean-code` (master) |
+| Naming variables, methods, types | `csharp-clean-names` |
+| Writing or editing comments/XML docs | `csharp-clean-comments` |
+| Creating or refactoring methods | `csharp-clean-functions` |
+| Reviewing code quality | `csharp-clean-general` |
+| Writing or reviewing tests | `csharp-clean-tests` |
+
 ## The Mindset
 
 **Don't:**
@@ -144,7 +177,7 @@ This skill coordinates with specialized skills based on what you're doing and th
 
 When working on code:
 
-1. Detect the language (Python, Java, TypeScript, JavaScript)
+1. Detect the language (Python, Java, TypeScript, JavaScript, Go, Rust, C#)
 2. Complete the requested task first
 3. MUST read and load the relevant sub-skills based on what was touched:
    - Any code changed → load `{lang}-clean-code` for comprehensive coverage
