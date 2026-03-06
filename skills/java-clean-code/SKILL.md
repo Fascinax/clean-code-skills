@@ -185,6 +185,20 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 
 ## AI Behavior
 
+### Mandatory Sub-Skill Orchestration
+
+This is the master skill for Java clean code. When this skill is triggered, you MUST also load and apply ALL of the following sub-skills — do not skip any:
+
+1. **`java-clean-names`** — Apply N1-N7 to every name introduced or modified
+2. **`java-clean-functions`** — Apply F1-F4 to every method written or refactored
+3. **`java-clean-comments`** — Apply C1-C5 to every comment or Javadoc
+4. **`java-clean-general`** — Apply G1-G36 for code quality (DRY, dead code, Law of Demeter, etc.)
+5. **`java-clean-tests`** — Apply T1-T9 to every test written or modified
+
+Load each sub-skill by reading its SKILL.md file and enforce its rules. Violations from sub-skills are equally important as violations from this master skill.
+
+### Review & Edit Protocol
+
 When reviewing code, identify violations by rule number (e.g., "G5 violation: duplicated logic").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced POJO with record (J1)").
 Before applying Modern Java idioms, check `pom.xml` (`maven.compiler.release`), `build.gradle` (Java toolchain), or `.sdkmanrc` for the target version. Java 17+: records, sealed classes. Java 21+: pattern matching switch, virtual threads. Default to Java 17 if no signal found.

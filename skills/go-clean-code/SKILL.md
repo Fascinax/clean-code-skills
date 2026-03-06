@@ -241,6 +241,20 @@ slog.Info("order processed",
 
 ## AI Behavior
 
+### Mandatory Sub-Skill Orchestration
+
+This is the master skill for Go clean code. When this skill is triggered, you MUST also load and apply ALL of the following sub-skills — do not skip any:
+
+1. **`go-clean-names`** — Apply N1-N7 to every name introduced or modified
+2. **`go-clean-functions`** — Apply F1-F4 to every function written or refactored
+3. **`go-clean-comments`** — Apply C1-C5 to every comment or godoc
+4. **`go-clean-general`** — Apply G1-G36 for code quality (DRY, dead code, Law of Demeter, etc.)
+5. **`go-clean-tests`** — Apply T1-T9 to every test written or modified
+
+Load each sub-skill by reading its SKILL.md file and enforce its rules. Violations from sub-skills are equally important as violations from this master skill.
+
+### Review & Edit Protocol
+
 When reviewing code, identify violations by rule number (e.g., "GO3 violation: error not checked").
 When fixing or editing code, report what was fixed (e.g., "Fixed: wrapped error with context (GO3)").
 Before applying Modern Go idioms, check `go.mod` for the Go version. Go 1.13+: error wrapping `%w`. Go 1.18+: generics. Go 1.21+: `slog`, `slices`, `maps`. Go 1.22+: range-over-int. Default to Go 1.21 if no signal found.

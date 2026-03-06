@@ -196,6 +196,20 @@ function createUser(name, role = 'member') { ... }
 
 ## AI Behavior
 
+### Mandatory Sub-Skill Orchestration
+
+This is the master skill for JavaScript clean code. When this skill is triggered, you MUST also load and apply ALL of the following sub-skills — do not skip any:
+
+1. **`javascript-clean-names`** — Apply N1-N7 to every name introduced or modified
+2. **`javascript-clean-functions`** — Apply F1-F4 to every function written or refactored
+3. **`javascript-clean-comments`** — Apply C1-C5 to every comment or JSDoc
+4. **`javascript-clean-general`** — Apply G1-G36 for code quality (DRY, dead code, Law of Demeter, etc.)
+5. **`javascript-clean-tests`** — Apply T1-T9 to every test written or modified
+
+Load each sub-skill by reading its SKILL.md file and enforce its rules. Violations from sub-skills are equally important as violations from this master skill.
+
+### Review & Edit Protocol
+
 When reviewing code, identify violations by rule number (e.g., "G5 violation: duplicated logic").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced `var` with `const` (JS1)").
 Before applying Modern JavaScript idioms, check `package.json` (`engines.node`), `.nvmrc`, or `.node-version` for the target version. ES2020/Node 14+: optional chaining `?.`, nullish coalescing `??`. ES2022/Node 16+: class fields `#`, top-level `await`. Default to ES2020 if no signal found.

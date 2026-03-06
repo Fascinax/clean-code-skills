@@ -175,26 +175,31 @@ This skill coordinates with specialized skills based on what you're doing and th
 
 ## AI Behavior
 
+> **CRITICAL**: Loading a master `{lang}-clean-code` skill is NOT sufficient on its own. The master skill provides a summary reference, but the sub-skills contain the detailed rules, examples, and anti-patterns that drive enforcement. You MUST load ALL sub-skills every time — no exceptions, no shortcuts.
+
 When working on code:
 
 1. Detect the language (Python, Java, TypeScript, JavaScript, Go, Rust, C#)
 2. Complete the requested task first
-3. MUST read and load the relevant sub-skills based on what was touched:
-   - Any code changed → load `{lang}-clean-code` for comprehensive coverage
-   - Names changed → also load `{lang}-clean-names` and apply N1-N7
-   - Functions refactored → also load `{lang}-clean-functions` and apply F1-F4
-   - Comments added/edited → also load `{lang}-clean-comments` and apply C1-C5
-   - Code quality issues → also load `{lang}-clean-general` and apply G5, G16, G23, G25, G30, G36
-   - Tests added/edited → also load `{lang}-clean-tests` and apply T1-T9
-4. Apply every loaded skill's rules and flag each violation with its rule number
-5. Note every improvement made (e.g., "Also cleaned up: renamed `x` to `results` — N1")
+3. MUST read and load the `{lang}-clean-code` master skill — it will instruct you to load all sub-skills
+4. MUST ALSO read and load EVERY sub-skill for the detected language, regardless of what was touched:
+   - `{lang}-clean-names` — apply N1-N7 to all names
+   - `{lang}-clean-functions` — apply F1-F4 to all functions/methods
+   - `{lang}-clean-comments` — apply C1-C5 to all comments/docs
+   - `{lang}-clean-general` — apply G1-G36 for code quality
+   - `{lang}-clean-tests` — apply T1-T9 to all tests
+5. Apply every loaded skill's rules and flag each violation with its rule number
+6. Note every improvement made (e.g., "Also cleaned up: renamed `x` to `results` — N1")
+
+**Do not cherry-pick sub-skills.** Even if you only changed a function name, load all 5 sub-skills — a name change may reveal a comment violation, a function length issue, or a missing test.
 
 When reviewing code:
 
 1. MUST load and read `{language}-clean-code` master skill first
-2. MUST load and read ALL sub-skills: `{lang}-clean-names`, `{lang}-clean-functions`, `{lang}-clean-comments`, `{lang}-clean-general`, `{lang}-clean-tests`
-3. Flag each violation by rule number (e.g., "N1: variable `x` should be `results`")
-4. Suggest incremental improvements, not complete rewrites
+2. MUST load and read ALL 5 sub-skills: `{lang}-clean-names`, `{lang}-clean-functions`, `{lang}-clean-comments`, `{lang}-clean-general`, `{lang}-clean-tests`
+3. Do NOT proceed with the review until all 6 skills (1 master + 5 sub-skills) are loaded
+4. Flag each violation by rule number (e.g., "N1: variable `x` should be `results`")
+5. Suggest incremental improvements, not complete rewrites
 
 ## The Boy Scout Promise
 

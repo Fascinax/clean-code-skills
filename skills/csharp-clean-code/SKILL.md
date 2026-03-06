@@ -231,6 +231,20 @@ var json = """
 
 ## AI Behavior
 
+### Mandatory Sub-Skill Orchestration
+
+This is the master skill for C# clean code. When this skill is triggered, you MUST also load and apply ALL of the following sub-skills — do not skip any:
+
+1. **`csharp-clean-names`** — Apply N1-N7 to every name introduced or modified
+2. **`csharp-clean-functions`** — Apply F1-F4 to every method written or refactored
+3. **`csharp-clean-comments`** — Apply C1-C5 to every comment or XML doc
+4. **`csharp-clean-general`** — Apply G1-G36 for code quality (DRY, dead code, Law of Demeter, etc.)
+5. **`csharp-clean-tests`** — Apply T1-T9 to every test written or modified
+
+Load each sub-skill by reading its SKILL.md file and enforce its rules. Violations from sub-skills are equally important as violations from this master skill.
+
+### Review & Edit Protocol
+
 When reviewing code, identify violations by rule number (e.g., "CS3 violation: blocking on `.Result`").
 When fixing or editing code, report what was fixed (e.g., "Fixed: replaced public field with property (CS1)").
 Before applying Modern C# idioms, check the `<TargetFramework>` and `<LangVersion>` in `.csproj`. C# 8: nullable refs, switch expressions, using declarations. C# 9: records, init-only. C# 10: global usings, file-scoped namespaces. C# 11: raw string literals. C# 12: primary constructors, collection expressions. Default to C# 10 / .NET 6 if no signal found.
