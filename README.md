@@ -1,8 +1,23 @@
 # Clean Code Skills for AI Agents
 
+<p align="center">
+  <img src="banner.jpg" alt="Clean Code Skills Banner" width="100%"/>
+</p>
+
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-blue)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Languages](https://img.shields.io/badge/Languages-Python%20%7C%20Java%20%7C%20TypeScript%20%7C%20JavaScript%20%7C%20Go%20%7C%20Rust%20%7C%20C%23-orange)](#whats-included)
+
+**Compatible :**
+
+<p align="center">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="70"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="70"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="70"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="70"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go" width="70"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" width="70"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" width="70"/>
+</p>
 
 **Teach your AI to write code that doesn't suck — in any language.**
 
@@ -25,7 +40,7 @@ These skills encode battle-tested solutions to exactly these problems—directly
 ### Overview
 
 | Language | Master Skill | Category Skills | Language-Specific Rules |
-|----------|-------------|-----------------|------------------------|
+| ---------- | ------------- | ----------------- | ------------------------ |
 | **Python** | `python-clean-code` | `python-clean-names`, `python-clean-functions`, `python-clean-comments`, `python-clean-general`, `python-clean-tests` | P1-P3 |
 | **Java** | `java-clean-code` | `java-clean-names`, `java-clean-functions`, `java-clean-comments`, `java-clean-general`, `java-clean-tests` | J1-J10 |
 | **TypeScript** | `typescript-clean-code` | `typescript-clean-names`, `typescript-clean-functions`, `typescript-clean-comments`, `typescript-clean-general`, `typescript-clean-tests` | TS1-TS8 |
@@ -39,7 +54,7 @@ Plus the language-agnostic **`boy-scout`** orchestrator that coordinates all ski
 ### Skills by Category
 
 | Skill Category | Description | Rules |
-|----------------|-------------|-------|
+| ---------------- | ------------- | ------- |
 | `{lang}-clean-code` | **Master skill** with all rules for the language | C1-C5, E1-E2, F1-F4, G1-G36, N1-N7, T1-T9 + language-specific |
 | `{lang}-clean-names` | Descriptive, unambiguous naming | N1-N7 |
 | `{lang}-clean-functions` | Small, focused, obvious functions | F1-F4 |
@@ -251,178 +266,7 @@ def process_transactions_without_tax(transactions: list[Transaction]) -> list[fl
 
 ## Rule Reference
 
-### Comments (C1-C5)
-
-| Rule | Principle |
-|------|-----------|
-| C1 | No metadata in comments (use Git) |
-| C2 | Delete obsolete comments immediately |
-| C3 | No redundant comments |
-| C4 | Write comments well if you must |
-| C5 | Never commit commented-out code |
-
-### Functions (F1-F4)
-
-| Rule | Principle |
-|------|-----------|
-| F1 | Maximum 3 arguments |
-| F2 | No output arguments |
-| F3 | No flag arguments |
-| F4 | Delete dead functions |
-
-### General (G1-G36)
-
-| Rule | Principle |
-|------|-----------|
-| G1 | One language per file |
-| G2 | Implement expected behavior |
-| G3 | Handle boundary conditions |
-| G4 | Don't override safeties |
-| G5 | DRY—no duplication |
-| G6 | Consistent abstraction levels |
-| G7 | Base classes don't know children |
-| G8 | Minimize public interface |
-| G9 | Delete dead code |
-| G10 | Variables near usage |
-| G11 | Be consistent |
-| G12 | Remove clutter |
-| G13 | No artificial coupling |
-| G14 | No feature envy |
-| G15 | No selector arguments |
-| G16 | No obscured intent |
-| G17 | Code where expected |
-| G18 | Prefer instance methods |
-| G19 | Use explanatory variables |
-| G20 | Function names say what they do |
-| G21 | Understand the algorithm |
-| G22 | Make dependencies physical |
-| G23 | Polymorphism over if/else |
-| G24 | Follow conventions (PEP 8 / Google Java Style / ESLint) |
-| G25 | Named constants, not magic numbers |
-| G26 | Be precise |
-| G27 | Structure over convention |
-| G28 | Encapsulate conditionals |
-| G29 | Avoid negative conditionals |
-| G30 | Functions do one thing |
-| G31 | Make temporal coupling explicit |
-| G32 | Don't be arbitrary |
-| G33 | Encapsulate boundary conditions |
-| G34 | One abstraction level per function |
-| G35 | Config at high levels |
-| G36 | Law of Demeter (one dot) |
-
-### Names (N1-N7)
-
-| Rule | Principle |
-|------|-----------|
-| N1 | Choose descriptive names |
-| N2 | Names at appropriate abstraction level |
-| N3 | Use standard nomenclature |
-| N4 | Unambiguous names |
-| N5 | Name length matches scope |
-| N6 | No encodings (no Hungarian notation) |
-| N7 | Names describe side effects |
-
-### Python-Specific (P1-P3)
-
-| Rule | Principle |
-|------|-----------|
-| P1 | No wildcard imports |
-| P2 | Use Enums, not magic constants |
-| P3 | Type hints on public interfaces |
-
-### Java-Specific (J1-J10)
-
-| Rule | Principle |
-|------|----------|
-| J1 | Use `record` for immutable data classes |
-| J2 | Use sealed classes/interfaces for restricted hierarchies |
-| J3 | Use pattern matching in `switch` |
-| J4 | Use `Optional` return types — never return null |
-| J5 | Use text blocks for multi-line strings |
-| J6 | Use virtual threads for I/O-bound concurrency |
-| J7 | Follow Google Java Style |
-| J8 | Always use `@Override` |
-| J9 | Use enums, not integer constants |
-| J10 | Javadoc for all public APIs |
-
-### TypeScript-Specific (TS1-TS8)
-
-| Rule | Principle |
-|------|----------|
-| TS1 | Use `unknown` over `any` — always narrow types |
-| TS2 | Prefer `type` over `interface` |
-| TS3 | Use discriminated unions for exhaustive pattern matching |
-| TS4 | Prefer `as const satisfies` for const assertions |
-| TS5 | Use `readonly` and `ReadonlyArray` for immutability |
-| TS6 | Use `import type` for type-only imports |
-| TS7 | Name generics descriptively (`TRequest`, not `T`) |
-| TS8 | Use `@ts-expect-error` over `@ts-ignore` |
-
-### JavaScript-Specific (JS1-JS7)
-
-| Rule | Principle |
-|------|----------|
-| JS1 | Use `const` by default, `let` when needed — never `var` |
-| JS2 | Use object destructuring for function arguments |
-| JS3 | Prefer async/await over Promises over callbacks |
-| JS4 | Use ES6+ class syntax over prototype manipulation |
-| JS5 | Favor functional patterns (map/filter/reduce) |
-| JS6 | Use `===` strict equality — never `==` |
-| JS7 | Use default parameters instead of short-circuiting |
-
-### Go-Specific (GO1-GO8)
-
-| Rule | Principle |
-|------|----------|
-| GO1 | Exported PascalCase, unexported camelCase — no underscores |
-| GO2 | Accept interfaces, return structs |
-| GO3 | Always check errors — wrap with `fmt.Errorf("...: %w", err)` |
-| GO4 | `go fmt` is non-negotiable |
-| GO5 | Small interfaces (1-2 methods) |
-| GO6 | Use `defer` for cleanup |
-| GO7 | Goroutine safety — use `context.Context`, never leak goroutines |
-| GO8 | Table-driven tests |
-
-### Rust-Specific (RS1-RS8)
-
-| Rule | Principle |
-|------|----------|
-| RS1 | Prefer borrowing over cloning — `&T` and `&mut T` first |
-| RS2 | Use `Result`/`Option` — never `panic!` in library code |
-| RS3 | Derive standard traits (`Debug`, `Clone`, `PartialEq`, `Default`) |
-| RS4 | Use iterators over manual loops |
-| RS5 | Run `cargo clippy` — treat warnings as errors |
-| RS6 | Exhaustive pattern matching — no wildcard `_` on enums |
-| RS7 | `thiserror` for library errors, `anyhow` for application errors |
-| RS8 | Minimize `unsafe` — document invariants |
-
-### C#-Specific (CS1-CS8)
-
-| Rule | Principle |
-|------|----------|
-| CS1 | Use properties, not public fields |
-| CS2 | Use LINQ for collection operations |
-| CS3 | async/await all the way — never `.Result` or `.Wait()` |
-| CS4 | Use `record` for immutable data (C# 9+) |
-| CS5 | Enable nullable reference types |
-| CS6 | Pattern matching switch expressions (C# 8+) |
-| CS7 | `using` declarations over `using` blocks (C# 8+) |
-| CS8 | Primary constructors for DI (C# 12+) |
-
-### Tests (T1-T9)
-
-| Rule | Principle |
-|------|-----------|
-| T1 | Test everything that could break |
-| T2 | Use coverage tools |
-| T3 | Don't skip trivial tests |
-| T4 | Ignored test = ambiguity question |
-| T5 | Test boundary conditions |
-| T6 | Exhaustively test near bugs |
-| T7 | Look for patterns in failures |
-| T8 | Check coverage when debugging |
-| T9 | Tests must be fast (<100ms) |
+All rules are documented in each skill's `SKILL.md` file. The universal rules (C1-C5, F1-F4, G1-G36, N1-N7, T1-T9) and language-specific rules are summarized in the [Language-Specific Rules](#language-specific-rules) section above. Open any `skills/{lang}-clean-code/SKILL.md` for the full reference with examples and anti-patterns.
 
 ---
 
